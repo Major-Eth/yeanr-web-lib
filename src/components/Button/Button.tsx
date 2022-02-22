@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-interface ButtonProps {
+export interface ButtonProps {
   primary?: boolean;
   children: string;
   onClick?: () => void;
@@ -10,13 +10,11 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, ...props }: ButtonProps) => {
-  return (
-    <StyledButton type="button" {...props}>
-      {children}
-    </StyledButton>
-  );
-};
+export const Button = ({ children, ...props }: ButtonProps) => (
+  <StyledButton type="button" {...props}>
+    {children}
+  </StyledButton>
+);
 
 const StyledButton = styled.button`
   font-family: "Roboto";
