@@ -98,7 +98,10 @@ const StyledButton = styled.button`
   ${({ variant }: ButtonProps) => css`
     width: 220px;
     height: 40px;
-    font-family: "Roboto";
+    font-family: "Roboto", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
     font-size: 16px;
     font-style: normal;
     line-height: 24px;
