@@ -1,5 +1,6 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, ReactNode } from "react";
 import styled, { css } from "styled-components";
+import { Spinner } from "../Spinner";
 
 interface ThemeType {
   name: "light" | "dark" | "blue";
@@ -7,10 +8,11 @@ interface ThemeType {
 }
 
 export interface ButtonProps {
-  children: string;
+  children: ReactNode;
   variant: "filled" | "outlined";
   theme: ThemeType;
-  disabled: boolean;
+  loading?: boolean;
+  disabled?: boolean;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -23,6 +25,21 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
       onClick(event);
     }
   };
+
+  if (props.loading) {
+    return (
+      <StyledButton onClick={onSafeClick} {...props}>
+        <Spinner
+          color={
+            props.variant === "filled"
+              ? props.theme.colors.surface
+              : props.theme.colors.primary
+          }
+          size={24}
+        />
+      </StyledButton>
+    );
+  }
 
   return (
     <StyledButton onClick={onSafeClick} {...props}>
@@ -93,6 +110,9 @@ const StyledButton = styled.button`
     cursor: pointer;
     display: inline-block;
     line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     ${VARIANTS[variant]}
   `}
