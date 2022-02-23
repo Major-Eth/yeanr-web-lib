@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import styled, { css } from "styled-components";
 
 export interface ButtonProps {
@@ -6,15 +6,25 @@ export interface ButtonProps {
   variant: "filled" | "outlined";
   theme: "light" | "dark" | "blue";
   disabled: boolean;
-  onClick?: () => void;
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, ...props }: ButtonProps) => (
-  <StyledButton {...props}>{children}</StyledButton>
-);
+export const Button = ({ children, onClick, ...props }: ButtonProps) => {
+  const onSafeClick = (event: MouseEvent<HTMLButtonElement>) => {
+    if (!props.disabled) {
+      onClick(event);
+    }
+  };
+
+  return (
+    <StyledButton onClick={onSafeClick} {...props}>
+      {children}
+    </StyledButton>
+  );
+};
 
 const FILLED = ({ theme }: ButtonProps) => css`
   color: #ffffff;
