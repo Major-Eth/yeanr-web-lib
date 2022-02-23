@@ -51,7 +51,7 @@ const OUTLINED = ({ theme }) => css`
   font-weight: 400;
   border: 1px solid #0657f9;
   box-sizing: border-box;
-  transition-property: color, background-color, border-color;
+  transition-property: color, background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 
