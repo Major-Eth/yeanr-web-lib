@@ -1,10 +1,15 @@
 import React, { MouseEvent } from "react";
 import styled, { css } from "styled-components";
 
+interface ThemeType {
+  name: "light" | "dark" | "blue";
+  colors: { [key: string]: string };
+}
+
 export interface ButtonProps {
   children: string;
   variant: "filled" | "outlined";
-  theme: "light" | "dark" | "blue";
+  theme: ThemeType;
   disabled: boolean;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -27,42 +32,42 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
 };
 
 const FILLED = ({ theme }: ButtonProps) => css`
-  color: #ffffff;
-  background-color: #0657f9;
+  color: ${theme.colors.surface};
+  background-color: ${theme.colors.primary};
   font-weight: 700;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 
   &:hover {
-    background-color: #004adf;
+    background-color: ${theme.colors["primary-variant"]};
   }
 
   &:disabled {
-    color: #ced5e3;
-    background-color: #f4f7fb;
+    color: ${theme.colors.icons};
+    background-color: ${theme.colors.background};
     cursor: not-allowed;
   }
 `;
 
-const OUTLINED = ({ theme }) => css`
-  color: #0657f9;
+const OUTLINED = ({ theme }: ButtonProps) => css`
+  color: ${theme.colors.primary};
   background-color: transparent;
   font-weight: 400;
-  border: 1px solid #0657f9;
+  border: 1px solid ${theme.colors.primary};
   box-sizing: border-box;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 
   &:hover {
-    background-color: #e0eaff;
+    background-color: ${theme.colors.secondary};
   }
 
   &:disabled {
-    color: #ced5e3;
+    color: ${theme.colors.icons};
     background-color: transparent;
-    border: 1px solid #ced5e3;
+    border: 1px solid ${theme.colors.icons};
     cursor: not-allowed;
   }
 `;

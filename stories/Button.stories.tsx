@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "../src";
 import ThemeProvider from "../src/providers";
+import themes from "./themes";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -18,6 +19,11 @@ export default {
       },
     },
     onClick: {
+      table: {
+        disable: true,
+      },
+    },
+    theme: {
       table: {
         disable: true,
       },
@@ -42,10 +48,12 @@ export const Filled = Template.bind({});
 Filled.args = {
   children: "Filled Button",
   variant: "filled",
+  theme: themes.light,
 };
 
 export const Outlined = Template.bind({});
 Outlined.args = {
   children: "Outlined Button",
   variant: "outlined",
+  theme: themes.light,
 };
