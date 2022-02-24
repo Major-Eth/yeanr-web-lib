@@ -5,6 +5,7 @@ import ThemeProvider from "../src/providers";
 import themes from "./themes";
 
 export default {
+  title: "Components/Button",
   component: ButtonComponent,
   argTypes: {
     children: {
