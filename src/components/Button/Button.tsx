@@ -35,7 +35,6 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
               ? props.theme.colors.surface
               : props.theme.colors.primary
           }
-          size={24}
         />
       </StyledButton>
     );

@@ -49,6 +49,12 @@ Filled.args = {
   children: "Filled Button",
   variant: "filled",
   theme: themes.light,
+  loading: false,
+  disabled: false,
+  style: {
+    width: 220,
+    height: 40,
+  },
 };
 
 export const Outlined = Template.bind({});
@@ -56,4 +62,10 @@ Outlined.args = {
   children: "Outlined Button",
   variant: "outlined",
   theme: themes.light,
+  loading: false,
+  disabled: false,
+  style: {
+    width: 220,
+    height: 40,
+  },
 };
