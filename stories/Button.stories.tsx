@@ -1,22 +1,14 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "../src";
+import { ComponentMeta } from "@storybook/react";
+import { Button as ButtonComponent, ButtonProps } from "../src";
 import ThemeProvider from "../src/providers";
 import themes from "./themes";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Button",
-  component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  component: ButtonComponent,
   argTypes: {
     children: {
       name: "label",
-    },
-    variant: {
-      table: {
-        disable: true,
-      },
     },
     onClick: {
       table: {
@@ -36,31 +28,13 @@ export default {
       </ThemeProvider>
     ),
   ],
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof ButtonComponent>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = ({ children, ...args }) => (
-  <Button {...args}>{children}</Button>
-);
+export const Button = (args: ButtonProps) => <ButtonComponent {...args} />;
 
-export const Filled = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Filled.args = {
-  children: "Filled Button",
+Button.args = {
   variant: "filled",
-  theme: themes.light,
-  loading: false,
-  disabled: false,
-  style: {
-    width: 220,
-    height: 40,
-  },
-};
-
-export const Outlined = Template.bind({});
-Outlined.args = {
-  children: "Outlined Button",
-  variant: "outlined",
+  children: "Label",
   theme: themes.light,
   loading: false,
   disabled: false,
