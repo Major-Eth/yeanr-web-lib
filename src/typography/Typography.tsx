@@ -3,8 +3,9 @@ import styled, { css } from "styled-components";
 
 export interface TextProps {
   bold?: boolean;
-  color?: string;
   children: string;
+  color?: string;
+  underlined?: boolean;
 }
 
 export const Heading1 = ({ children, ...props }: TextProps) => (
@@ -52,47 +53,41 @@ Caption.defaultProps = {
   color: "#001746",
 };
 
-const CommonStyle = css`
+const CommonStyle = css<TextProps>`
   font-family: Roboto;
   font-style: normal;
+  color: ${({ color }) => color};
+  font-weight: ${({ bold }) => (bold ? "700" : "400")};
+  text-decoration: ${({ underlined }) =>
+    underlined ? "underline" : undefined};
 `;
 
 const H1 = styled.h1<TextProps>`
   ${CommonStyle}
-  color: ${({ color }) => color};
-  font-weight: ${({ bold }) => (bold ? "700" : "400")};
   font-size: 24px;
   line-height: 32px;
 `;
 
 const H2 = styled.h2<TextProps>`
   ${CommonStyle}
-  color: ${({ color }) => color};
-  font-weight: ${({ bold }) => (bold ? "700" : "400")};
   font-size: 20px;
   line-height: 32px;
 `;
 
 const H3 = styled.h3<TextProps>`
   ${CommonStyle}
-  color: ${({ color }) => color};
-  font-weight: ${({ bold }) => (bold ? "700" : "400")};
   font-size: 16px;
   line-height: 24px;
 `;
 
 const T = styled.p<TextProps>`
   ${CommonStyle}
-  color: ${({ color }) => color};
-  font-weight: ${({ bold }) => (bold ? "700" : "400")};
   font-size: 16px;
   line-height: 24px;
 `;
 
 const C = styled.caption<TextProps>`
   ${CommonStyle}
-  color: ${({ color }) => color};
-  font-weight: ${({ bold }) => (bold ? "700" : "400")};
   font-size: 12px;
   line-height: 16px;
 `;

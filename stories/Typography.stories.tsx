@@ -40,24 +40,29 @@ export const Caption = (props: TextProps) => <CaptionComponent {...props} />;
 Heading1.args = {
   children: "Heading 1",
   bold: false,
+  underlined: false,
 };
 
 Heading2.args = {
   children: "Heading 2",
   bold: false,
+  underlined: false,
 };
 
 Heading3.args = {
   children: "Heading 3",
   bold: false,
+  underlined: false,
 };
 
 Text.args = {
   children: "Text",
   bold: false,
+  underlined: false,
 };
 
 Caption.args = {
   children: "Caption",
   bold: false,
+  underlined: false,
 };
