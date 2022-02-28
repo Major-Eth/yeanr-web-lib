@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import { Button as ButtonComponent, ButtonProps } from "../src";
-import ThemeProvider from "../src/providers";
 import themes from "./themes";
 
 export default {
@@ -22,13 +21,6 @@ export default {
       },
     },
   },
-  decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
 } as ComponentMeta<typeof ButtonComponent>;
 
 export const Button = (args: ButtonProps) => <ButtonComponent {...args} />;

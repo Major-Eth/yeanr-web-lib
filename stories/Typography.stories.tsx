@@ -8,7 +8,6 @@ import {
   Caption as CaptionComponent,
   TypographyProps,
 } from "../src/typography";
-import ThemeProvider from "../src/providers";
 import themes from "./themes";
 
 export default {
@@ -19,13 +18,6 @@ export default {
       name: "label",
     },
   },
-  decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
 } as ComponentMeta<typeof Heading1Component>;
 
 export const Heading1 = (props: TypographyProps) => (
