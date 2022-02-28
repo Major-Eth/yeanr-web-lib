@@ -1,93 +1,74 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { ThemeType } from "../types";
 
-export interface TextProps {
-  bold?: boolean;
+export interface TypographyProps {
   children: string;
+  theme: ThemeType;
+  bold?: boolean;
   color?: string;
   underlined?: boolean;
 }
 
-export const Heading1 = ({ children, ...props }: TextProps) => (
+export const Heading1 = ({ children, ...props }: TypographyProps) => (
   <H1 {...props}>{children}</H1>
 );
 
-export const Heading2 = ({ children, ...props }: TextProps) => (
+export const Heading2 = ({ children, ...props }: TypographyProps) => (
   <H2 {...props}>{children}</H2>
 );
 
-export const Heading3 = ({ children, ...props }: TextProps) => (
+export const Heading3 = ({ children, ...props }: TypographyProps) => (
   <H3 {...props}>{children}</H3>
 );
 
-export const Text = ({ children, ...props }: TextProps) => (
+export const Text = ({ children, ...props }: TypographyProps) => (
   <T {...props}>{children}</T>
 );
 
-export const Caption = ({ children, ...props }: TextProps) => (
+export const Caption = ({ children, ...props }: TypographyProps) => (
   <C {...props}>{children}</C>
 );
 
-Heading1.defaultProps = {
-  bold: false,
-  color: "#001746",
-};
-
-Heading2.defaultProps = {
-  bold: false,
-  color: "#001746",
-};
-
-Heading3.defaultProps = {
-  bold: false,
-  color: "#001746",
-};
-
-Text.defaultProps = {
-  bold: false,
-  color: "#001746",
-};
-
-Caption.defaultProps = {
-  bold: false,
-  color: "#001746",
-};
-
-const CommonStyle = css<TextProps>`
+const TypographyStyle = ({
+  color,
+  bold,
+  underlined,
+  theme,
+}: TypographyProps) => css`
   font-family: Roboto;
   font-style: normal;
-  color: ${({ color }) => color};
-  font-weight: ${({ bold }) => (bold ? "700" : "400")};
-  text-decoration: ${({ underlined }) =>
-    underlined ? "underline" : undefined};
+  color: ${color ?? theme.colors.titles};
+  font-weight: ${bold ? "700" : "400"};
+  text-decoration: ${underlined ? "underline" : undefined};
 `;
 
-const H1 = styled.h1<TextProps>`
-  ${CommonStyle}
+const H1 = styled.h1<TypographyProps>`
+  ${TypographyStyle}
   font-size: 24px;
   line-height: 32px;
 `;
 
-const H2 = styled.h2<TextProps>`
-  ${CommonStyle}
+const H2 = styled.h2<TypographyProps>`
+  ${TypographyStyle}
   font-size: 20px;
   line-height: 32px;
 `;
 
-const H3 = styled.h3<TextProps>`
-  ${CommonStyle}
+const H3 = styled.h3<TypographyProps>`
+  ${TypographyStyle}
   font-size: 16px;
   line-height: 24px;
 `;
 
-const T = styled.p<TextProps>`
-  ${CommonStyle}
+const T = styled.p<TypographyProps>`
+  ${TypographyStyle}
   font-size: 16px;
   line-height: 24px;
 `;
 
-const C = styled.caption<TextProps>`
-  ${CommonStyle}
+const C = styled.caption<TypographyProps>`
+  ${TypographyStyle}
   font-size: 12px;
   line-height: 16px;
 `;

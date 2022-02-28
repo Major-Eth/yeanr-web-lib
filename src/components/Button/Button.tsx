@@ -1,11 +1,7 @@
 import React, { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
 import styled, { css } from "styled-components";
+import { ThemeType } from "../../types";
 import { Spinner } from "../Spinner";
-
-interface ThemeType {
-  name: "light" | "dark" | "blue";
-  colors: { [key: string]: string };
-}
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;

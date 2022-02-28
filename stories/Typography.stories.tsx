@@ -6,9 +6,10 @@ import {
   Heading3 as Heading3Component,
   Text as TextComponent,
   Caption as CaptionComponent,
-  TextProps,
+  TypographyProps,
 } from "../src/typography";
 import ThemeProvider from "../src/providers";
+import themes from "./themes";
 
 export default {
   title: "Typography",
@@ -27,42 +28,55 @@ export default {
   ],
 } as ComponentMeta<typeof Heading1Component>;
 
-export const Heading1 = (props: TextProps) => <Heading1Component {...props} />;
+export const Heading1 = (props: TypographyProps) => (
+  <Heading1Component {...props} />
+);
 
-export const Heading2 = (props: TextProps) => <Heading2Component {...props} />;
+export const Heading2 = (props: TypographyProps) => (
+  <Heading2Component {...props} />
+);
 
-export const Heading3 = (props: TextProps) => <Heading3Component {...props} />;
+export const Heading3 = (props: TypographyProps) => (
+  <Heading3Component {...props} />
+);
 
-export const Text = (props: TextProps) => <TextComponent {...props} />;
+export const Text = (props: TypographyProps) => <TextComponent {...props} />;
 
-export const Caption = (props: TextProps) => <CaptionComponent {...props} />;
+export const Caption = (props: TypographyProps) => (
+  <CaptionComponent {...props} />
+);
 
 Heading1.args = {
   children: "Heading 1",
   bold: false,
   underlined: false,
+  theme: themes.light,
 };
 
 Heading2.args = {
   children: "Heading 2",
   bold: false,
   underlined: false,
+  theme: themes.light,
 };
 
 Heading3.args = {
   children: "Heading 3",
   bold: false,
   underlined: false,
+  theme: themes.light,
 };
 
 Text.args = {
   children: "Text",
   bold: false,
   underlined: false,
+  theme: themes.light,
 };
 
 Caption.args = {
   children: "Caption",
   bold: false,
   underlined: false,
+  theme: themes.light,
 };
