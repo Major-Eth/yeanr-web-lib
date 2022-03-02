@@ -27,7 +27,7 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
   if (loading) {
     return (
       <StyledButton {...props} disabled>
-        <Spinner color={theme.colors.icons} />
+        <Spinner color={theme.colors.icons.primary} />
       </StyledButton>
     );
   }
@@ -40,36 +40,36 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
 };
 
 const FILLED = css`
-  color: ${({ theme }) => theme.colors.surface};
-  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.button.filled.text};
+  background-color: ${({ theme }) => theme.colors.button.filled.primary};
   font-weight: 700;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors["primary-variant"]};
+    background-color: ${({ theme }) => theme.colors.button.filled.variant};
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.colors.icons};
-    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.button.disabled.text};
+    background-color: ${({ theme }) => theme.colors.button.disabled.primary};
     cursor: not-allowed;
   }
 `;
 
 const OUTLINED = () => css`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.button.outlined.text};
   background-color: transparent;
   font-weight: 400;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.button.outlined.text};
   box-sizing: border-box;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.button.outlined.variant};
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.colors.icons};
+    color: ${({ theme }) => theme.colors.button.disabled.text};
     background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.icons};
+    border: 1px solid ${({ theme }) => theme.colors.button.disabled.text};
     cursor: not-allowed;
   }
 `;
