@@ -116,5 +116,5 @@ const StyledText = styled(Text)`
 `;
 
 const InvertedChevronIcon = styled(ChevronIcon)`
-  transform: scaleX(-1);
+  transform: rotate(-180deg);
 `;
