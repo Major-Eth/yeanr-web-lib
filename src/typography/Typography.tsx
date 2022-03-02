@@ -1,10 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { ThemeType } from "../types";
 
 export interface TypographyProps {
   children: string;
-  theme: ThemeType;
   bold?: boolean;
   color?: string;
   underlined?: boolean;
@@ -30,15 +28,11 @@ export const Caption = ({ children, ...props }: TypographyProps) => (
   <C {...props}>{children}</C>
 );
 
-const TypographyStyle = ({
-  color,
-  bold,
-  underlined,
-  theme,
-}: TypographyProps) => css`
+const TypographyStyle = ({ color, bold, underlined }: TypographyProps) => css`
+  margin: 0;
   font-family: Roboto;
   font-style: normal;
-  color: ${color ?? theme.colors.titles};
+  color: ${({ theme }) => color ?? theme.colors.titles};
   font-weight: ${bold ? "700" : "400"};
   text-decoration: ${underlined ? "underline" : undefined};
 `;

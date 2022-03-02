@@ -1,12 +1,10 @@
 import React, { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
-import styled, { css } from "styled-components";
-import { ThemeType } from "../../types";
+import styled, { css, useTheme } from "styled-components";
 import { Spinner } from "../Spinner";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant: "filled" | "outlined";
-  theme: ThemeType;
   loading?: boolean;
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -16,7 +14,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Primary UI component for user interaction
  */
 export const Button = ({ children, onClick, ...props }: ButtonProps) => {
-  const { loading, disabled, theme } = props;
+  const theme = useTheme();
+
+  const { loading, disabled } = props;
 
   const onSafeClick = (event: MouseEvent<HTMLButtonElement>) => {
     if (!disabled && onClick) {
@@ -39,37 +39,37 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
   );
 };
 
-const FILLED = ({ theme }: ButtonProps) => css`
-  color: ${theme.colors.surface};
-  background-color: ${theme.colors.primary};
+const FILLED = css`
+  color: ${({ theme }) => theme.colors.surface};
+  background-color: ${({ theme }) => theme.colors.primary};
   font-weight: 700;
 
   &:hover {
-    background-color: ${theme.colors["primary-variant"]};
+    background-color: ${({ theme }) => theme.colors["primary-variant"]};
   }
 
   &:disabled {
-    color: ${theme.colors.icons};
-    background-color: ${theme.colors.background};
+    color: ${({ theme }) => theme.colors.icons};
+    background-color: ${({ theme }) => theme.colors.background};
     cursor: not-allowed;
   }
 `;
 
-const OUTLINED = ({ theme }: ButtonProps) => css`
-  color: ${theme.colors.primary};
+const OUTLINED = () => css`
+  color: ${({ theme }) => theme.colors.primary};
   background-color: transparent;
   font-weight: 400;
-  border: 1px solid ${theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   box-sizing: border-box;
 
   &:hover {
-    background-color: ${theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.secondary};
   }
 
   &:disabled {
-    color: ${theme.colors.icons};
+    color: ${({ theme }) => theme.colors.icons};
     background-color: transparent;
-    border: 1px solid ${theme.colors.icons};
+    border: 1px solid ${({ theme }) => theme.colors.icons};
     cursor: not-allowed;
   }
 `;
