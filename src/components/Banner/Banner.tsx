@@ -37,14 +37,16 @@ export const Banner = ({
   return (
     <BannerContainer>
       <HeaderContainer>
-        <StyledHeading2 bold>{details[current].heading}</StyledHeading2>
+        <StyledHeading2 bold>
+          {details?.[current]?.heading || ""}
+        </StyledHeading2>
         <CrossMarkIcon onClick={handleClose} />
       </HeaderContainer>
       {details[current].content}
       <BannerControls
         current={current}
         setCurrent={setCurrent}
-        numberOfBanners={details.length}
+        numberOfBanners={details.length || 0}
       />
     </BannerContainer>
   );
