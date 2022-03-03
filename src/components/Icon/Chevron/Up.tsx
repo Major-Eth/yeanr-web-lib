@@ -13,7 +13,7 @@ const SvgUp = (props: SVGProps<SVGSVGElement>) => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M4.342 16.753a1 1 0 0 1-.095-1.412l7-8a1 1 0 0 1 1.506 0l7 8a1 1 0 1 1-1.506 1.318L12 9.518l-6.247 7.14a1 1 0 0 1-1.411.094Z"
-      fill="currentColor"
+      fill="currentcolor"
     />
   </svg>
 );

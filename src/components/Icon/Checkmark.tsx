@@ -11,7 +11,7 @@ const SvgCheckmark = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="m4 14 6 4L20 6"
-      stroke="currentColor"
+      stroke="currentcolor"
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
