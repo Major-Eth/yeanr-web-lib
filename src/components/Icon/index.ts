@@ -1,6 +1,8 @@
 export { default as Add } from "./Add";
+export { Up as ArrowUp, Down as ArrowDown, Left as ArrowLeft, Right as ArrowRight } from "./Arrow"
 export { default as Arbitrum } from "./Arbitrum";
 export { default as Checkmark } from "./Checkmark";
+export { Up as ChevronUp, Down as ChevronDown, Left as ChevronLeft, Right as ChevronRight } from "./Chevron";
 export { default as Copy } from "./Copy";
 export { default as CrossMark } from "./CrossMark";
 export { default as Discord } from "./Discord";

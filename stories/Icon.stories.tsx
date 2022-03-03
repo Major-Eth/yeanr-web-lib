@@ -2,7 +2,15 @@ import React from "react";
 import {
     Add as AddIconComponent,
     Arbitrum as ArbitrumIconComponent,
+    ArrowUp as ArrowUpIconComponent,
+    ArrowDown as ArrowDownIconComponent,
+    ArrowLeft as ArrowLeftIconComponent,
+    ArrowRight as ArrowRightIconComponent,
     Checkmark as CheckmarkIconComponent,
+    ChevronUp as ChevronUpIconComponent,
+    ChevronDown as ChevronDownIconComponent,
+    ChevronLeft as ChevronLeftIconComponent,
+    ChevronRight as ChevronRightIconComponent,
     Copy as CopyIconComponent,
     CrossMark as CrossMarkIconComponent,
     Discord as DiscordIconComponent,
@@ -31,7 +39,15 @@ export default {
 
 export const AddIcon = () => <AddIconComponent />
 export const ArbitrumIcon = () => <ArbitrumIconComponent />
+export const ArrowUp = () => <ArrowUpIconComponent />
+export const ArrowDown = () => <ArrowDownIconComponent />
+export const ArrowRight = () => <ArrowRightIconComponent />
+export const ArrowLeft = () => <ArrowLeftIconComponent />
 export const CheckmarkIcon = () => <CheckmarkIconComponent />
+export const ChevronUpIcon = () => <ChevronUpIconComponent />
+export const ChevronDownIcon = () => <ChevronDownIconComponent />
+export const ChevronRightIcon = () => <ChevronRightIconComponent />
+export const ChevronLeftIcon = () => <ChevronUpIconComponent />
 export const CopyIcon = () => <CopyIconComponent />
 export const CrossMarkIcon = () => <CrossMarkIconComponent />
 export const DiscordIcon = () => <DiscordIconComponent />
