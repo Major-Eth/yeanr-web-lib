@@ -87,7 +87,7 @@ const BannerControls = ({
 };
 
 const BannerContainer = styled.section`
-  background: ${({ theme }) => theme.colors["background-variant"]};
+  background: ${({ theme }) => theme.colors.backgroundVariant};
   border: 2px solid ${({ theme }) => theme.colors.primary};
   box-sizing: border-box;
   padding: 24px;
