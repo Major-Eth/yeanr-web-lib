@@ -47,7 +47,7 @@ export const CheckmarkIcon = () => <CheckmarkIconComponent />
 export const ChevronUpIcon = () => <ChevronUpIconComponent />
 export const ChevronDownIcon = () => <ChevronDownIconComponent />
 export const ChevronRightIcon = () => <ChevronRightIconComponent />
-export const ChevronLeftIcon = () => <ChevronUpIconComponent />
+export const ChevronLeftIcon = () => <ChevronLeftIconComponent />
 export const CopyIcon = () => <CopyIconComponent />
 export const CrossMarkIcon = () => <CrossMarkIconComponent />
 export const DiscordIcon = () => <DiscordIconComponent />
