@@ -35,9 +35,9 @@ export const WalletIcon = () => <Icon.Wallet />
 export const WarningIcon = () => <Icon.Warning />
 
 ArrowIcon.args = {
-  variant: 'down'
+  direction: 'down'
 }
 
 ChevronIcon.args = {
-  variant: 'up'
+  direction: 'up'
 }

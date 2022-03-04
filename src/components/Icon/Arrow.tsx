@@ -2,10 +2,10 @@ import * as React from "react";
 import { SVGProps } from "react";
 
 export interface ArrowIconProps extends SVGProps<SVGSVGElement> {
-  variant: Direction;
+  direction: ArrowIconDirection;
 }
 
-enum Direction {
+export enum ArrowIconDirection {
   Up = "up",
   Down = "down",
   Left = "left",
@@ -13,10 +13,10 @@ enum Direction {
 }
 
 const rotationDegree = {
-  [Direction.Down]: "0",
-  [Direction.Left]: "90",
-  [Direction.Up]: "180",
-  [Direction.Right]: "270",
+  [ArrowIconDirection.Down]: "0",
+  [ArrowIconDirection.Left]: "90",
+  [ArrowIconDirection.Up]: "180",
+  [ArrowIconDirection.Right]: "270",
 }
 
 const SvgUp = (props: ArrowIconProps) => (
@@ -25,7 +25,7 @@ const SvgUp = (props: ArrowIconProps) => (
     height={24}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    transform={"rotate(" + rotationDegree[props.variant] + ")"}
+    transform={"rotate(" + rotationDegree[props.direction] + ")"}
     {...props}
   >
     <path
