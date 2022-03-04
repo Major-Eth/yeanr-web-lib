@@ -19,7 +19,7 @@ const StyledText = styled(Text)`
 const Template: ComponentStory<typeof CardComponent> = (props) => (
   <CardComponent {...props}>
     <StyledTtitle>This is my title</StyledTtitle>
-    <StyledText>{'There are many like it, but this one is yours. You can always return here for a bird\'s-eye view of your holdings. The cards below show the total balance and utilization of your wallet, and the holdings and performance for every Yearn product you use.'}</StyledText>
+    <StyledText>{`There are many like it, but this one is yours. You can always return here for a bird's-eye view of your holdings. The cards below show the total balance and utilization of your wallet, and the holdings and performance for every Yearn product you use.`}</StyledText>
   </CardComponent>
 );
 
