@@ -4,7 +4,13 @@ import React, {
   ReactNode,
   ReactElement,
 } from "react";
-import styled, { css, useTheme } from "styled-components";
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+  useTheme,
+} from "styled-components";
 import { Spinner } from "../Spinner";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -48,7 +54,7 @@ export const Button = ({
   );
 };
 
-const FILLED = css`
+const FILLED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   color: ${({ theme }) => theme.colors.button.filled.text};
   background-color: ${({ theme }) => theme.colors.button.filled.primary};
   font-weight: 700;
@@ -64,7 +70,7 @@ const FILLED = css`
   }
 `;
 
-const OUTLINED = css`
+const OUTLINED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   color: ${({ theme }) => theme.colors.button.outlined.text};
   background-color: transparent;
   font-weight: 400;

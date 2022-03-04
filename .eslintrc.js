@@ -14,6 +14,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:prettier/recommended",
     "prettier",
+    "plugin:storybook/recommended",
   ],
   globals: {
     Atomics: "readonly",
