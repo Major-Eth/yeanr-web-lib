@@ -1,3 +1,3 @@
 export * from "./Button";
 export * from "./Spinner";
-export * from './Icon';
+export { default as Icon } from './Icon';
