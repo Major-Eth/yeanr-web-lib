@@ -11,8 +11,11 @@
   "repository": "https://github.com/Major-Eth/yearn-web-lib.git",
   "scripts": {
     "build": "rm -rf ./dist && tsc -d --emitDeclarationOnly --declarationDir dist",
-    "lint": "eslint  --ignore-path .gitignore --ext .js,.ts .",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "run-p -cln lint:typescript lint:eslint lint:other",
+    "lint:typescript": "tsc -p tsconfig.json --noEmit",
+    "lint:eslint": "eslint --ignore-path .gitignore --max-warnings 0 --ext .ts,.tsx src",
+    "lint:other": "prettier --check 'src/**/*.{ts,tsx}'",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
     "release": "yarn build && np",
     "dev": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
@@ -41,9 +44,11 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "np": "^7.6.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1"
   },
   "dependencies": {
+    "eslint-plugin-prettier": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.3",
