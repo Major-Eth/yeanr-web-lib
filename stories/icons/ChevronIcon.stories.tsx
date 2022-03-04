@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { ComponentMeta } from "@storybook/react";
 import { ChevronIcon as ChevronIconComponent } from "../../src";
 import type { ChevronProps } from "../../src";
@@ -30,7 +30,7 @@ export default {
   },
 } as ComponentMeta<typeof ChevronIconComponent>;
 
-export const Chevron = (args: ChevronProps) => (
+export const Chevron = (args: ChevronProps): ReactElement => (
   <ChevronIconComponent {...args} />
 );
 

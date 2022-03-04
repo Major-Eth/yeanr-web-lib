@@ -46,18 +46,18 @@ const SampleBanner1: BannerDetailsProps = {
   content: (
     <StyledSampleBanner1Container>
       <StyledText>
-        This is a banner component. It can appear on different pages to inform
+        {`This is a banner component. It can appear on different pages to inform
         users about anything. There can be multiple banners on a single page.
         Banners should be shown one by one. This component has controls. There
         is a cross mark in the top right corner to close one banner. There are
-        arrows in the bottom right corner to switch between banners.
+        arrows in the bottom right corner to switch between banners.`}
       </StyledText>
       <StyledText>
-        The component’s height could be changed to fit text length. Please, be
+        {`The component’s height could be changed to fit text length. Please, be
         sure you have 24px gaps between outer borders and the whole content
-        inside.
+        inside.`}
       </StyledText>
-      <StyledText>Have a nice day.</StyledText>
+      <StyledText>{`Have a nice day.`}</StyledText>
     </StyledSampleBanner1Container>
   ),
 };
@@ -66,7 +66,7 @@ const SampleBanner2: BannerDetailsProps = {
   heading: "Banner 2 Heading",
   content: (
     <StyledText>
-      Banner 2 Content // Lorem ipsum dolor sit amet, consectetur adipiscing
+      {`Banner 2 Content // Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Vestibulum a imperdiet mi. Donec in vehicula dolor. Aliquam eu
       posuere lorem. Nunc vestibulum imperdiet dapibus. Ut varius finibus
       pharetra. Nam consequat sapien id dui pulvinar gravida. Sed vitae nunc
@@ -74,7 +74,7 @@ const SampleBanner2: BannerDetailsProps = {
       ornare. Aliquam auctor, odio eu interdum laoreet, enim tellus lobortis
       nulla, sed faucibus diam quam in nunc. Praesent ipsum massa, accumsan vel
       nisi ut, tristique feugiat ipsum. Etiam sit amet risus in magna viverra
-      accumsan.
+      accumsan.`}
     </StyledText>
   ),
 };
@@ -87,8 +87,8 @@ export const Banner = (args: BannerProps): ReactElement => {
   }
 
   return (
-    <Button variant="filled" onClick={() => setShow(true)}>
-      Show Banner
+    <Button variant={"filled"} onClick={() => setShow(true)}>
+      {`Show Banner`}
     </Button>
   );
 };

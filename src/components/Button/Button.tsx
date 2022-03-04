@@ -1,4 +1,9 @@
-import React, { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  MouseEvent,
+  ReactNode,
+  ReactElement,
+} from "react";
 import styled, { css, useTheme } from "styled-components";
 import { Spinner } from "../Spinner";
 
@@ -13,12 +18,16 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, onClick, ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  onClick,
+  ...props
+}: ButtonProps): ReactElement => {
   const theme = useTheme();
 
   const { loading, disabled } = props;
 
-  const onSafeClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disabled && onClick) {
       onClick(event);
     }
@@ -55,7 +64,7 @@ const FILLED = css`
   }
 `;
 
-const OUTLINED = () => css`
+const OUTLINED = css`
   color: ${({ theme }) => theme.colors.button.outlined.text};
   background-color: transparent;
   font-weight: 400;
