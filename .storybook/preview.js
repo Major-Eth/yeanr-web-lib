@@ -23,18 +23,25 @@ export const globalTypes = {
   },
 };
 
-const withThemeProvider=(Story,context)=> {
-  let theme = light;
-  if (context?.globals?.theme === 'light')
-    theme = light;
-  if (context?.globals?.theme === 'dark')
-    theme = dark;
-  if (context?.globals?.theme === 'blue')
-    theme = blue;
+function getThemeFromContext(context) {
+  switch (context?.globals?.theme) {
+    case "dark":
+      return dark;
+    case "blue":
+      return blue;
+    default:
+      return light;
+  }
+}
+
+const withThemeProvider = (Story, context) => {
+  const theme = getThemeFromContext(context);
+
   return (
     <ThemeProvider theme={theme}>
       <Story {...context} />
     </ThemeProvider>
-  )
-}
+  );
+};
+
 export const decorators = [withThemeProvider];
