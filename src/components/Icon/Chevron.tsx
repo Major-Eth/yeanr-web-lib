@@ -2,7 +2,7 @@ import * as React from "react";
 import { SVGProps } from "react";
 
 export interface ChevronIconProps extends SVGProps<SVGSVGElement> {
-  variant?: "down" | "up" | "left" | "right"
+  variant: "down" | "up" | "left" | "right"
 };
 
 const Svg = (props: ChevronIconProps) => {
