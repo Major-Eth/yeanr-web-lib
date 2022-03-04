@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { ComponentMeta } from "@storybook/react";
 import { Button as ButtonComponent, ButtonProps } from "../../src";
 
@@ -17,7 +17,9 @@ export default {
   },
 } as ComponentMeta<typeof ButtonComponent>;
 
-export const Button = (args: ButtonProps) => <ButtonComponent {...args} />;
+export const Button = (args: ButtonProps): ReactElement => (
+  <ButtonComponent {...args} />
+);
 
 Button.args = {
   variant: "filled",

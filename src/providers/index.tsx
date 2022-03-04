@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ReactElement } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import RobotoWoff from "../fonts/roboto-v29-latin-regular.woff";
 import RobotoWoff2 from "../fonts/roboto-v29-latin-regular.woff2";
@@ -23,16 +23,15 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 interface WrapperProps {
-  children: ReactNode,
-  theme: ThemeType,
+  children: ReactNode;
+  theme: ThemeType;
 }
 
-const Wrapper = ({children, theme}: WrapperProps) => (
+const Wrapper = ({ children, theme }: WrapperProps): ReactElement => (
   <ThemeProvider theme={theme || defaultTheme}>
     <GlobalStyles />
     {children}
   </ThemeProvider>
 );
-
 
 export default Wrapper;
