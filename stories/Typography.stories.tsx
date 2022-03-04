@@ -8,7 +8,6 @@ import {
   Caption as CaptionComponent,
   TypographyProps,
 } from "../src/typography";
-import themes from "./themes";
 
 export default {
   title: "Typography",
@@ -42,33 +41,28 @@ Heading1.args = {
   children: "Heading 1",
   bold: false,
   underlined: false,
-  theme: themes.light,
 };
 
 Heading2.args = {
   children: "Heading 2",
   bold: false,
   underlined: false,
-  theme: themes.light,
 };
 
 Heading3.args = {
   children: "Heading 3",
   bold: false,
   underlined: false,
-  theme: themes.light,
 };
 
 Text.args = {
   children: "Text",
   bold: false,
   underlined: false,
-  theme: themes.light,
 };
 
 Caption.args = {
   children: "Caption",
   bold: false,
   underlined: false,
-  theme: themes.light,
 };

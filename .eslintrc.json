@@ -27,6 +27,7 @@
     "@typescript-eslint/no-shadow": ["error"],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "react/prop-types": 0,
+    "react/require-default-props": "off",
     "react/jsx-props-no-spreading": 0,
     "react/no-multi-comp": 0,
     "import/extensions": [
