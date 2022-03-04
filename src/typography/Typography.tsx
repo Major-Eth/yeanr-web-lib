@@ -1,44 +1,51 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { ThemeType } from "../types";
+import React, { ReactElement } from "react";
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+} from "styled-components";
 
 export interface TypographyProps {
   children: string;
-  theme: ThemeType;
   bold?: boolean;
   color?: string;
   underlined?: boolean;
 }
 
-export const Heading1 = ({ children, ...props }: TypographyProps) => (
-  <H1 {...props}>{children}</H1>
-);
+export const Heading1 = ({
+  children,
+  ...props
+}: TypographyProps): ReactElement => <H1 {...props}>{children}</H1>;
 
-export const Heading2 = ({ children, ...props }: TypographyProps) => (
-  <H2 {...props}>{children}</H2>
-);
+export const Heading2 = ({
+  children,
+  ...props
+}: TypographyProps): ReactElement => <H2 {...props}>{children}</H2>;
 
-export const Heading3 = ({ children, ...props }: TypographyProps) => (
-  <H3 {...props}>{children}</H3>
-);
+export const Heading3 = ({
+  children,
+  ...props
+}: TypographyProps): ReactElement => <H3 {...props}>{children}</H3>;
 
-export const Text = ({ children, ...props }: TypographyProps) => (
+export const Text = ({ children, ...props }: TypographyProps): ReactElement => (
   <T {...props}>{children}</T>
 );
 
-export const Caption = ({ children, ...props }: TypographyProps) => (
-  <C {...props}>{children}</C>
-);
+export const Caption = ({
+  children,
+  ...props
+}: TypographyProps): ReactElement => <C {...props}>{children}</C>;
 
 const TypographyStyle = ({
   color,
   bold,
   underlined,
-  theme,
-}: TypographyProps) => css`
+}: TypographyProps): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
+  margin: 0;
   font-family: Roboto;
   font-style: normal;
-  color: ${color ?? theme.colors.titles};
+  color: ${({ theme }) => color ?? theme.colors.titles};
   font-weight: ${bold ? "700" : "400"};
   text-decoration: ${underlined ? "underline" : undefined};
 `;

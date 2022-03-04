@@ -1,7 +1,6 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { ComponentMeta } from "@storybook/react";
-import { Button as ButtonComponent, ButtonProps } from "../src";
-import themes from "./themes";
+import { Button as ButtonComponent, ButtonProps } from "../../src";
 
 export default {
   title: "Components/Button",
@@ -15,20 +14,16 @@ export default {
         disable: true,
       },
     },
-    theme: {
-      table: {
-        disable: true,
-      },
-    },
   },
 } as ComponentMeta<typeof ButtonComponent>;
 
-export const Button = (args: ButtonProps) => <ButtonComponent {...args} />;
+export const Button = (args: ButtonProps): ReactElement => (
+  <ButtonComponent {...args} />
+);
 
 Button.args = {
   variant: "filled",
   children: "Label",
-  theme: themes.light,
   loading: false,
   disabled: false,
   style: {

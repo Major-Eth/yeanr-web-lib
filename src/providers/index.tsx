@@ -1,7 +1,8 @@
-import React, { ReactElement, ReactNode } from "react";
-import { createGlobalStyle } from "styled-components";
+import React, { ReactNode, ReactElement } from "react";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import RobotoWoff from "../fonts/roboto-v29-latin-regular.woff";
 import RobotoWoff2 from "../fonts/roboto-v29-latin-regular.woff2";
+import { defaultTheme, ThemeType } from "../themes";
 
 const GlobalStyles = createGlobalStyle`
     @font-face {
@@ -21,9 +22,16 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-export default ({ children }: { children: ReactNode }): ReactElement => (
-  <>
+interface WrapperProps {
+  children: ReactNode;
+  theme: ThemeType;
+}
+
+const Wrapper = ({ children, theme }: WrapperProps): ReactElement => (
+  <ThemeProvider theme={theme || defaultTheme}>
     <GlobalStyles />
     {children}
-  </>
+  </ThemeProvider>
 );
+
+export default Wrapper;

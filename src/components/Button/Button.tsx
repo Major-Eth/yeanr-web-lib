@@ -1,12 +1,21 @@
-import React, { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
-import styled, { css } from "styled-components";
-import { ThemeType } from "../../types";
+import React, {
+  ButtonHTMLAttributes,
+  MouseEvent,
+  ReactNode,
+  ReactElement,
+} from "react";
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+  useTheme,
+} from "styled-components";
 import { Spinner } from "../Spinner";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant: "filled" | "outlined";
-  theme: ThemeType;
   loading?: boolean;
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -15,10 +24,16 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, onClick, ...props }: ButtonProps) => {
-  const { loading, disabled, theme } = props;
+export const Button = ({
+  children,
+  onClick,
+  ...props
+}: ButtonProps): ReactElement => {
+  const theme = useTheme();
 
-  const onSafeClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const { loading, disabled } = props;
+
+  const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disabled && onClick) {
       onClick(event);
     }
@@ -27,7 +42,7 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
   if (loading) {
     return (
       <StyledButton {...props} disabled>
-        <Spinner color={theme.colors.icons} />
+        <Spinner color={theme.colors.icons.primary} />
       </StyledButton>
     );
   }
@@ -39,37 +54,37 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
   );
 };
 
-const FILLED = ({ theme }: ButtonProps) => css`
-  color: ${theme.colors.surface};
-  background-color: ${theme.colors.primary};
+const FILLED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
+  color: ${({ theme }) => theme.colors.button.filled.text};
+  background-color: ${({ theme }) => theme.colors.button.filled.primary};
   font-weight: 700;
 
   &:hover {
-    background-color: ${theme.colors["primary-variant"]};
+    background-color: ${({ theme }) => theme.colors.button.filled.variant};
   }
 
   &:disabled {
-    color: ${theme.colors.icons};
-    background-color: ${theme.colors.background};
+    color: ${({ theme }) => theme.colors.button.disabled.text};
+    background-color: ${({ theme }) => theme.colors.button.disabled.primary};
     cursor: not-allowed;
   }
 `;
 
-const OUTLINED = ({ theme }: ButtonProps) => css`
-  color: ${theme.colors.primary};
+const OUTLINED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
+  color: ${({ theme }) => theme.colors.button.outlined.text};
   background-color: transparent;
   font-weight: 400;
-  border: 1px solid ${theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.button.outlined.text};
   box-sizing: border-box;
 
   &:hover {
-    background-color: ${theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.button.outlined.variant};
   }
 
   &:disabled {
-    color: ${theme.colors.icons};
+    color: ${({ theme }) => theme.colors.button.disabled.text};
     background-color: transparent;
-    border: 1px solid ${theme.colors.icons};
+    border: 1px solid ${({ theme }) => theme.colors.button.disabled.text};
     cursor: not-allowed;
   }
 `;
