@@ -1,16 +1,11 @@
+import { ComponentMeta } from "@storybook/react";
 import React from "react";
 import {
     Add as AddIconComponent,
     Arbitrum as ArbitrumIconComponent,
-    ArrowUp as ArrowUpIconComponent,
-    ArrowDown as ArrowDownIconComponent,
-    ArrowLeft as ArrowLeftIconComponent,
-    ArrowRight as ArrowRightIconComponent,
+    Arrow as ArrowIconComponent,
     Checkmark as CheckmarkIconComponent,
-    ChevronUp as ChevronUpIconComponent,
-    ChevronDown as ChevronDownIconComponent,
-    ChevronLeft as ChevronLeftIconComponent,
-    ChevronRight as ChevronRightIconComponent,
+    Chevron as ChevronIconComponent,
     Copy as CopyIconComponent,
     CrossMark as CrossMarkIconComponent,
     Discord as DiscordIconComponent,
@@ -31,23 +26,19 @@ import {
     Wallet as WalletIconComponent,
     Warning as WarningIconComponent,
 } from "../src";
+import { ArrowIconProps } from "../src/components/Icon/Arrow";
+import { ChevronIconProps } from "../src/components/Icon/Chevron";
 
 export default {
   title: "Components/Icon",
-  component: HomeIconComponent,
-};
+  component: ArrowIconComponent,
+} as ComponentMeta<typeof ArrowIconComponent>;
 
 export const AddIcon = () => <AddIconComponent />
 export const ArbitrumIcon = () => <ArbitrumIconComponent />
-export const ArrowUp = () => <ArrowUpIconComponent />
-export const ArrowDown = () => <ArrowDownIconComponent />
-export const ArrowRight = () => <ArrowRightIconComponent />
-export const ArrowLeft = () => <ArrowLeftIconComponent />
+export const ArrowIcon = (args: ArrowIconProps) => <ArrowIconComponent {...args} />
 export const CheckmarkIcon = () => <CheckmarkIconComponent />
-export const ChevronUpIcon = () => <ChevronUpIconComponent />
-export const ChevronDownIcon = () => <ChevronDownIconComponent />
-export const ChevronRightIcon = () => <ChevronRightIconComponent />
-export const ChevronLeftIcon = () => <ChevronLeftIconComponent />
+export const ChevronIcon = (args: ChevronIconProps) => <ChevronIconComponent {...args} />
 export const CopyIcon = () => <CopyIconComponent />
 export const CrossMarkIcon = () => <CrossMarkIconComponent />
 export const DiscordIcon = () => <DiscordIconComponent />
@@ -67,3 +58,11 @@ export const TwitterIcon = () => <TwitterIconComponent />
 export const VaultIcon = () => <VaultIconComponent />
 export const WalletIcon = () => <WalletIconComponent />
 export const WarningIcon = () => <WarningIconComponent />
+
+ArrowIcon.args = {
+  variant: 'down'
+}
+
+ChevronIcon.args = {
+  variant: 'up'
+}
