@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ReactElement } from "react";
 import styled, { css } from "styled-components";
 
 export interface CardProps {
@@ -6,13 +6,11 @@ export interface CardProps {
   withHover?: boolean;
 }
 
-export const Card = ({ children, ...props }: CardProps) => (
-    <StyledCard {...props}>
-      {children}
-    </StyledCard>
-  );
+export const Card = ({ children, ...props }: CardProps): ReactElement => (
+  <StyledCard {...props}>{children}</StyledCard>
+);
 
-const StyledCard = styled.section`
+const StyledCard = styled.section<CardProps>`
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => `0px 0px 0px ${theme.colors.background}00`};
   border-radius: 0.5rem;
@@ -20,11 +18,13 @@ const StyledCard = styled.section`
   transition-property: background box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  ${({ withHover }: CardProps) => withHover && css`
-    cursor: pointer;
-    &:hover {
-      background: ${({ theme }) => theme.colors.surfaceVariant};
-      box-shadow: ${({ theme }) => `0px 0px 24px ${theme.colors.surface}19`};
-    }
-  `}
+  ${({ withHover }) =>
+    withHover &&
+    css`
+      cursor: pointer;
+      &:hover {
+        background: ${({ theme }) => theme.colors.surfaceVariant};
+        box-shadow: ${({ theme }) => `0px 0px 24px ${theme.colors.surface}19`};
+      }
+    `}
 `;
