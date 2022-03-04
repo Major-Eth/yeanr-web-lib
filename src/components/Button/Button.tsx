@@ -1,5 +1,16 @@
-import React, { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
-import styled, { css, useTheme } from "styled-components";
+import React, {
+  ButtonHTMLAttributes,
+  MouseEvent,
+  ReactNode,
+  ReactElement,
+} from "react";
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+  useTheme,
+} from "styled-components";
 import { Spinner } from "../Spinner";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,12 +24,16 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, onClick, ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  onClick,
+  ...props
+}: ButtonProps): ReactElement => {
   const theme = useTheme();
 
   const { loading, disabled } = props;
 
-  const onSafeClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disabled && onClick) {
       onClick(event);
     }
@@ -39,7 +54,7 @@ export const Button = ({ children, onClick, ...props }: ButtonProps) => {
   );
 };
 
-const FILLED = css`
+const FILLED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   color: ${({ theme }) => theme.colors.button.filled.text};
   background-color: ${({ theme }) => theme.colors.button.filled.primary};
   font-weight: 700;
@@ -55,7 +70,7 @@ const FILLED = css`
   }
 `;
 
-const OUTLINED = () => css`
+const OUTLINED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   color: ${({ theme }) => theme.colors.button.outlined.text};
   background-color: transparent;
   font-weight: 400;

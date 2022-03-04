@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { ComponentMeta } from "@storybook/react";
 import {
   Heading1 as Heading1Component,
@@ -19,21 +19,23 @@ export default {
   },
 } as ComponentMeta<typeof Heading1Component>;
 
-export const Heading1 = (props: TypographyProps) => (
+export const Heading1 = (props: TypographyProps): ReactElement => (
   <Heading1Component {...props} />
 );
 
-export const Heading2 = (props: TypographyProps) => (
+export const Heading2 = (props: TypographyProps): ReactElement => (
   <Heading2Component {...props} />
 );
 
-export const Heading3 = (props: TypographyProps) => (
+export const Heading3 = (props: TypographyProps): ReactElement => (
   <Heading3Component {...props} />
 );
 
-export const Text = (props: TypographyProps) => <TextComponent {...props} />;
+export const Text = (props: TypographyProps): ReactElement => (
+  <TextComponent {...props} />
+);
 
-export const Caption = (props: TypographyProps) => (
+export const Caption = (props: TypographyProps): ReactElement => (
   <CaptionComponent {...props} />
 );
 
