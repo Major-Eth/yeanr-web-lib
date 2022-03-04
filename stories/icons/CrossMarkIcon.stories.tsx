@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { ComponentMeta } from "@storybook/react";
 import { CrossMarkIcon as CrossMarkIconComponent } from "../../src";
 import type { CrossMarkProps } from "../../src";
@@ -30,7 +30,7 @@ export default {
   },
 } as ComponentMeta<typeof CrossMarkIconComponent>;
 
-export const CrossMark = (args: CrossMarkProps) => (
+export const CrossMark = (args: CrossMarkProps): ReactElement => (
   <CrossMarkIconComponent {...args} />
 );
 

@@ -24,11 +24,11 @@ export const Banner = ({
   details,
   onClose,
 }: BannerProps): ReactElement | null => {
-  if (!details) return null;
-
   const [current, setCurrent] = useState(0);
 
-  const handleClose = () => {
+  if (!details) return null;
+
+  const handleClose = (): void => {
     if (onClose) {
       onClose();
     }
@@ -62,13 +62,13 @@ const BannerControls = ({
   const isFirstBanner = current === 0;
   const isLastBanner = current === numberOfBanners - 1;
 
-  const handleLeftChevronClick = () => {
+  const handleLeftChevronClick = (): void => {
     if (!isFirstBanner) {
       setCurrent((prev) => prev - 1);
     }
   };
 
-  const handleRightChevronClick = () => {
+  const handleRightChevronClick = (): void => {
     if (!isLastBanner) {
       setCurrent((prev) => prev + 1);
     }

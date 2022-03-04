@@ -22,9 +22,15 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-export default ({ children }: { children: ReactNode }): ReactElement => (
-  <ThemeProvider theme={defaultTheme}>
-    <GlobalStyles />
-    {children}
-  </ThemeProvider>
-);
+export default function Provider({
+  children,
+}: {
+  children: ReactNode;
+}): ReactElement {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyles />
+      {children}
+    </ThemeProvider>
+  );
+}
