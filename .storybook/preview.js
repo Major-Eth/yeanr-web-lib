@@ -1,5 +1,5 @@
 import ThemeProvider from "../src/providers";
-import {light, dark, blue} from "../src/themes";
+import { light, dark, blue } from "../src/themes";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
