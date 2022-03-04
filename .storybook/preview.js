@@ -13,11 +13,11 @@ export const parameters = {
 
 export const globalTypes = {
   theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'light',
+    name: "Theme",
+    description: "Global theme for components",
+    defaultValue: "light",
     toolbar: {
-      items: ['light', 'dark', 'blue'],
+      items: ["light", "dark", "blue"],
       showName: true,
     },
   },
