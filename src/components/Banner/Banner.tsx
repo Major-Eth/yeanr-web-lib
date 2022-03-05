@@ -77,18 +77,19 @@ const BannerControls = ({
     }
   };
 
+  // TODO: we possibly need to add IconButton that replaces span and also supports disabled state
   return (
     <ControlsContainer>
       <span onClick={handleLeftChevronClick}>
         <Icon.Chevron
-          direction={IconDirection.Left}
+          direction={IconDirection.LEFT}
           // disabled={isFirstBanner}
         />
       </span>
       <StyledText bold>{`${current + 1}/${numberOfBanners}`}</StyledText>
       <span onClick={handleRightChevronClick}>
         <Icon.Chevron
-          direction={IconDirection.Right}
+          direction={IconDirection.RIGHT}
           // disabled={isLastBanner}
         />
       </span>

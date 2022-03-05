@@ -1,14 +1,15 @@
 import * as React from "react";
 import { IconDirectionProps, IconDirection } from "./Direction";
+import { IconProps } from "./Icon";
 
 export const rotationDegree = {
-  [IconDirection.Down]: "0",
-  [IconDirection.Left]: "90",
-  [IconDirection.Up]: "180",
-  [IconDirection.Right]: "270",
+  [IconDirection.DOWN]: "0",
+  [IconDirection.LEFT]: "90",
+  [IconDirection.UP]: "180",
+  [IconDirection.RIGHT]: "270",
 };
 
-const SvgUp = (props: IconDirectionProps) => (
+const SvgUp = (props: IconDirectionProps & IconProps) => (
   <svg
     width={props.size ?? 24}
     height={props.size ?? 24}
