@@ -1,8 +1,9 @@
 import React, { ReactElement, useState } from "react";
 
 import styled from "styled-components";
-import { ChevronIcon, CrossMarkIcon } from "../../icons";
+import { Icon } from "..";
 import { Heading2, Text } from "../../typography";
+import { IconDirection } from "../Icon/Direction";
 
 export interface BannerDetailsProps {
   heading: string;
@@ -40,7 +41,9 @@ export const Banner = ({
         <StyledHeading2 bold>
           {details?.[current]?.heading || ""}
         </StyledHeading2>
-        <CrossMarkIcon onClick={handleClose} />
+        <span onClick={handleClose}>
+          <Icon.CrossMark />
+        </span>
       </HeaderContainer>
       {details[current].content}
       <BannerControls
@@ -76,12 +79,19 @@ const BannerControls = ({
 
   return (
     <ControlsContainer>
-      <ChevronIcon onClick={handleLeftChevronClick} disabled={isFirstBanner} />
+      <span onClick={handleLeftChevronClick}>
+        <Icon.Chevron
+          direction={IconDirection.Left}
+          // disabled={isFirstBanner}
+        />
+      </span>
       <StyledText bold>{`${current + 1}/${numberOfBanners}`}</StyledText>
-      <InvertedChevronIcon
-        onClick={handleRightChevronClick}
-        disabled={isLastBanner}
-      />
+      <span onClick={handleRightChevronClick}>
+        <Icon.Chevron
+          direction={IconDirection.Right}
+          // disabled={isLastBanner}
+        />
+      </span>
     </ControlsContainer>
   );
 };
@@ -113,8 +123,4 @@ const StyledHeading2 = styled(Heading2)`
 const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.primary};
   margin: 0 12px;
-`;
-
-const InvertedChevronIcon = styled(ChevronIcon)`
-  transform: rotate(-180deg);
 `;

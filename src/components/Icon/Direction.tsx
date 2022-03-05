@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import { IconProps } from "./Icon";
 
 export enum IconDirection {
   Up = "up",
@@ -7,6 +7,6 @@ export enum IconDirection {
   Right = "right",
 }
 
-export interface IconDirectionProps extends SVGProps<SVGSVGElement> {
+export interface IconDirectionProps extends IconProps {
   direction: IconDirection;
 }
