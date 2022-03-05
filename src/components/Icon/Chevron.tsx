@@ -1,25 +1,14 @@
 import * as React from "react";
-import { SVGProps } from "react";
-
-export interface ChevronIconProps extends SVGProps<SVGSVGElement> {
-  direction: ChevronIconDirection;
-}
-
-export enum ChevronIconDirection {
-  Up = "up",
-  Down = "down",
-  Left = "left",
-  Right = "right",
-}
+import { IconDirectionProps, IconDirection } from "./Direction";
 
 const rotationDegree = {
-  [ChevronIconDirection.Down]: "0",
-  [ChevronIconDirection.Left]: "90",
-  [ChevronIconDirection.Up]: "180",
-  [ChevronIconDirection.Right]: "270",
+  [IconDirection.Down]: "0",
+  [IconDirection.Left]: "90",
+  [IconDirection.Up]: "180",
+  [IconDirection.Right]: "270",
 };
 
-const Svg = (props: ChevronIconProps) => (
+const Svg = (props: IconDirectionProps) => (
   <svg
     width={24}
     height={24}

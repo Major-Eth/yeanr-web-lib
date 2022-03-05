@@ -1,25 +1,14 @@
 import * as React from "react";
-import { SVGProps } from "react";
+import { IconDirectionProps, IconDirection } from "./Direction";
 
-export interface ArrowIconProps extends SVGProps<SVGSVGElement> {
-  direction: ArrowIconDirection;
-}
-
-export enum ArrowIconDirection {
-  Up = "up",
-  Down = "down",
-  Left = "left",
-  Right = "right",
-}
-
-const rotationDegree = {
-  [ArrowIconDirection.Down]: "0",
-  [ArrowIconDirection.Left]: "90",
-  [ArrowIconDirection.Up]: "180",
-  [ArrowIconDirection.Right]: "270",
+export const rotationDegree = {
+  [IconDirection.Down]: "0",
+  [IconDirection.Left]: "90",
+  [IconDirection.Up]: "180",
+  [IconDirection.Right]: "270",
 };
 
-const SvgUp = (props: ArrowIconProps) => (
+const SvgUp = (props: IconDirectionProps) => (
   <svg
     width={24}
     height={24}
