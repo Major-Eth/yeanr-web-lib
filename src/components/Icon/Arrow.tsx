@@ -17,7 +17,7 @@ const rotationDegree = {
   [ArrowIconDirection.Left]: "90",
   [ArrowIconDirection.Up]: "180",
   [ArrowIconDirection.Right]: "270",
-}
+};
 
 const SvgUp = (props: ArrowIconProps) => (
   <svg

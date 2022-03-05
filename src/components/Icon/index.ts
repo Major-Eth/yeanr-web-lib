@@ -1,5 +1,5 @@
 import Add from "./Add";
-import Arrow from "./Arrow"
+import Arrow from "./Arrow";
 import Arbitrum from "./Arbitrum";
 import Checkmark from "./Checkmark";
 import Chevron from "./Chevron";
@@ -24,28 +24,28 @@ import Wallet from "./Wallet";
 import Warning from "./Warning";
 
 export default {
-    Add,
-    Arrow,
-    Arbitrum,
-    Checkmark,
-    Chevron,
-    Copy,
-    CrossMark,
-    Discord,
-    Error,
-    Etherium,
-    Fantom,
-    Github,
-    Home,
-    Info,
-    IronBank,
-    Lab,
-    LinkOut,
-    Medium,
-    Search,
-    Settings,
-    Twitter,
-    Vault,
-    Wallet,
-    Warning
-}
+  Add,
+  Arrow,
+  Arbitrum,
+  Checkmark,
+  Chevron,
+  Copy,
+  CrossMark,
+  Discord,
+  Error,
+  Etherium,
+  Fantom,
+  Github,
+  Home,
+  Info,
+  IronBank,
+  Lab,
+  LinkOut,
+  Medium,
+  Search,
+  Settings,
+  Twitter,
+  Vault,
+  Wallet,
+  Warning,
+};
