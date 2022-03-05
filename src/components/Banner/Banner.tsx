@@ -82,14 +82,14 @@ const BannerControls = ({
     <ControlsContainer>
       <span onClick={handleLeftChevronClick}>
         <Icon.Chevron
-          direction={IconDirection.LEFT}
+          direction={IconDirection.Left}
           // disabled={isFirstBanner}
         />
       </span>
       <StyledText bold>{`${current + 1}/${numberOfBanners}`}</StyledText>
       <span onClick={handleRightChevronClick}>
         <Icon.Chevron
-          direction={IconDirection.RIGHT}
+          direction={IconDirection.Right}
           // disabled={isLastBanner}
         />
       </span>

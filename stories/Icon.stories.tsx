@@ -40,9 +40,9 @@ export const WalletIcon = (args: IconProps) => <Icon.Wallet {...args} />
 export const WarningIcon = (args: IconProps) => <Icon.Warning {...args} />
 
 ArrowIcon.args = {
-  direction: IconDirection.UP
+  direction: IconDirection.Up
 }
 
 ChevronIcon.args = {
-  direction: IconDirection.UP
+  direction: IconDirection.Up
 }

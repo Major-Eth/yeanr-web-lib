@@ -3,10 +3,10 @@ import { IconDirectionProps, IconDirection } from "./Direction";
 import { IconProps } from "./Icon";
 
 export const rotationDegree = {
-  [IconDirection.DOWN]: "0",
-  [IconDirection.LEFT]: "90",
-  [IconDirection.UP]: "180",
-  [IconDirection.RIGHT]: "270",
+  [IconDirection.Down]: "0",
+  [IconDirection.Left]: "90",
+  [IconDirection.Up]: "180",
+  [IconDirection.Right]: "270",
 };
 
 const SvgUp = (props: IconDirectionProps & IconProps) => (
