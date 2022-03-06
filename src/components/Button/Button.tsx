@@ -17,8 +17,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-interface ButtonIconProps extends ButtonProps {
+export interface ButtonIconProps extends ButtonProps {
   theme: DefaultTheme;
+  buttonSize?: number;
   onSafeClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -51,8 +52,8 @@ export const Button = (props: ButtonProps): ReactElement | null => {
   return <StyledLabelButton {...props} onClick={onSafeClick} />;
 };
 
-function ButtonIcon(props: ButtonIconProps): ReactElement | null {
-  const { loading, theme, icon, onSafeClick } = props;
+export function ButtonIcon(props: ButtonIconProps): ReactElement | null {
+  const { loading, buttonSize, theme, icon, onSafeClick } = props;
 
   if (!icon) return null;
 
@@ -61,11 +62,8 @@ function ButtonIcon(props: ButtonIconProps): ReactElement | null {
   }
 
   return (
-    <StyledIconButton>
-      {React.cloneElement(icon, {
-        ...props,
-        onClick: onSafeClick,
-      })}
+    <StyledIconButton {...props} buttonSize={buttonSize} onClick={onSafeClick}>
+      {React.cloneElement(icon)}
     </StyledIconButton>
   );
 }
@@ -139,10 +137,11 @@ const StyledLabelButton = styled.button`
   `}
 `;
 
-const StyledIconButton = styled.div`
+const StyledIconButton = styled.button<ButtonIconProps>`
+  all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
+  width: ${({ buttonSize }) => buttonSize ?? 24}px;
+  height: ${({ buttonSize }) => buttonSize ?? 24}px;
 `;
