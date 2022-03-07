@@ -3,7 +3,7 @@ import { IconProps } from "./Icon";
 
 const SvgTwitter = (props: IconProps) => (
   <svg
-    width={props.size}
+    width={props.size ?? 24}
     height={props.size}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
