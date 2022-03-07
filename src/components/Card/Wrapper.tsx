@@ -1,16 +1,19 @@
-import React, { ReactNode, ReactElement } from "react";
+import React, { MouseEvent, ReactNode, ReactElement } from "react";
 import styled, { css } from "styled-components";
 
-export interface CardProps {
+export interface CardWrapperProps {
   children: ReactNode;
-  withHover?: boolean;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Card = ({ children, ...props }: CardProps): ReactElement => (
-  <StyledCard {...props}>{children}</StyledCard>
-);
+export const Wrapper = ({
+  children,
+  ...props
+}: CardWrapperProps): ReactElement => {
+  return <StyledCardWrapper {...props}>{children}</StyledCardWrapper>;
+};
 
-const StyledCard = styled.section<CardProps>`
+const StyledCardWrapper = styled.section<CardWrapperProps>`
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => `0px 0px 0px ${theme.colors.background}00`};
   border-radius: 0.5rem;
@@ -18,8 +21,8 @@ const StyledCard = styled.section<CardProps>`
   transition-property: background box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  ${({ withHover }) =>
-    withHover &&
+  ${({ onClick }) =>
+    onClick &&
     css`
       cursor: pointer;
       &:hover {

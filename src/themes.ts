@@ -158,10 +158,10 @@ export const blue: ThemeType = {
     secondary: "#0657F9",
     titles: "#FFFFFF",
     titlesVariant: "#FFFFFF",
-    texts: "#7F8DA9",
+    texts: "#CED5E3",
     disabled: "#CED5E3",
     icons: {
-      primary: "#7F8DA9",
+      primary: "#CED5E3",
       variant: "#FFFFFF",
     },
     button: {
