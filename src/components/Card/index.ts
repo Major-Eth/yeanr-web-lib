@@ -1,5 +1,5 @@
-import { Wrapper } from "./Wrapper";
+import { Card } from "./Card";
 import { CardHead as Head } from "./CardHead";
-import { CardGrid2 } from "./CardGrid2";
+import { CardStats as Stats } from "./CardStats";
 
-export default { Wrapper, Head, CardGrid2 };
+export default Object.assign(Card, { Head, Stats });

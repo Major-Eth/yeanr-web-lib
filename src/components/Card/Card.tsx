@@ -1,19 +1,23 @@
-import React, { MouseEvent, ReactNode, ReactElement } from "react";
+import React, { MouseEventHandler, ReactNode, ReactElement } from "react";
 import styled, { css } from "styled-components";
 
-export interface CardWrapperProps {
+export interface CardProps {
   children: ReactNode;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: MouseEventHandler | null;
 }
 
-export const Wrapper = ({
+export const Card = ({
   children,
+  onClick,
   ...props
-}: CardWrapperProps): ReactElement => {
-  return <StyledCardWrapper {...props}>{children}</StyledCardWrapper>;
+}: CardProps): ReactElement => {
+  if (onClick) {
+    return <StyledCard onClick={onClick} {...props}>{children}</StyledCard>;
+  }
+  return <StyledCard {...props}>{children}</StyledCard>;
 };
 
-const StyledCardWrapper = styled.section<CardWrapperProps>`
+const StyledCard = styled.section<CardProps>`
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => `0px 0px 0px ${theme.colors.background}00`};
   border-radius: 0.5rem;
