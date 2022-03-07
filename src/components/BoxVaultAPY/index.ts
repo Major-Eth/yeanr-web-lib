@@ -1,1 +1,1 @@
-export * from "./VaultAPI";
+export * from "./BoxVaultAPY";

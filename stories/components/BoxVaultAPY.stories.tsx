@@ -4,11 +4,11 @@ import { BoxVaultAPY as BoxVaultAPYComponent } from "../../src";
 import styled from "styled-components";
 
 export default {
-  title: "Components/BoxVaultAPY",
+  title: "Components/Box Vault APY",
   component: BoxVaultAPYComponent,
 } as ComponentMeta<typeof BoxVaultAPYComponent>;
 
-export interface ColsProps {
+interface ColsProps {
   cols: number;
 }
 const StyledWrapper = styled.div<ColsProps>`
@@ -18,7 +18,7 @@ const StyledWrapper = styled.div<ColsProps>`
 `;
 
 const Template: ComponentStory<typeof BoxVaultAPYComponent> = (props) => (
-  <StyledWrapper cols={4}>
+  <StyledWrapper cols={6}>
     <BoxVaultAPYComponent {...props} />
     <BoxVaultAPYComponent
       onClick={() => null}
