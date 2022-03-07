@@ -8,6 +8,7 @@ import {
   Caption as CaptionComponent,
   TypographyProps,
 } from "../src/typography";
+import styled from "styled-components";
 
 export default {
   title: "Typography",
@@ -39,6 +40,12 @@ export const Caption = (props: TypographyProps): ReactElement => (
   <CaptionComponent {...props} />
 );
 
+export const FakeHeading1 = (props: TypographyProps): ReactElement => (
+  <StyledHeading1 forwardedAs={"p"} {...props} />
+);
+
+const StyledHeading1 = styled(Heading1Component)``;
+
 Heading1.args = {
   children: "Heading 1",
   bold: false,
@@ -65,6 +72,12 @@ Text.args = {
 
 Caption.args = {
   children: "Caption",
+  bold: false,
+  underlined: false,
+};
+
+FakeHeading1.args = {
+  children: "I'm a paragraph but look like a heading1",
   bold: false,
   underlined: false,
 };
