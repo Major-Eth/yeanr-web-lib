@@ -1,7 +1,7 @@
 import * as React from "react";
 import { IconProps } from "./Icon";
 
-const Svg = (props: IconProps): React.ReactElement => (
+const SvgAddMetamask = (props: IconProps): React.ReactElement => (
   <svg
     width={props.size ?? 24}
     height={props.size ?? 24}
@@ -31,4 +31,4 @@ const Svg = (props: IconProps): React.ReactElement => (
   </svg>
 );
 
-export default Svg;
+export default SvgAddMetamask;
