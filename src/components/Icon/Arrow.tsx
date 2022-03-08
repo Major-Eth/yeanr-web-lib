@@ -9,7 +9,9 @@ export const rotationDegree = {
   [IconDirection.Right]: "270",
 };
 
-const SvgUp = (props: IconDirectionProps & IconProps): React.ReactElement => (
+export type ArrowIconProps = IconDirectionProps & IconProps;
+
+const SvgUp = (props: ArrowIconProps): React.ReactElement => (
   <svg
     width={props.size ?? 24}
     height={props.size ?? 24}
