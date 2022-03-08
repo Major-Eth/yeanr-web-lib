@@ -3,7 +3,7 @@ export enum IconDirection {
   Down = "DOWN",
   Left = "LEFT",
   Right = "RIGHT",
-};
+}
 
 export type IconDirectionProps = {
   direction: IconDirection;

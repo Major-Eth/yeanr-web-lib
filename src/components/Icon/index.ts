@@ -7,7 +7,7 @@ import Copy from "./Copy";
 import CrossMark from "./CrossMark";
 import Discord from "./Discord";
 import Error from "./Error";
-import Etherium from "./Etherium";
+import Ethereum from "./Ethereum";
 import Fantom from "./Fantom";
 import Github from "./Github";
 import Home from "./Home";
@@ -33,7 +33,7 @@ export default {
   CrossMark,
   Discord,
   Error,
-  Etherium,
+  Ethereum,
   Fantom,
   Github,
   Home,
