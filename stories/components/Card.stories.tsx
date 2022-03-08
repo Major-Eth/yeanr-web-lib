@@ -8,7 +8,7 @@ export default {
   component: CardComponent,
 } as ComponentMeta<typeof CardComponent>;
 
-const StyledTtitle = styled(Text)`
+const StyledTitle = styled(Text)`
   color: ${({ theme }) => theme.colors.titles};
   margin-bottom: 0.5rem;
 `;
