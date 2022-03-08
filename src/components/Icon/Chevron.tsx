@@ -11,7 +11,7 @@ const rotationDegree = {
 
 export type ChevronIconProps = IconDirectionProps & IconProps;
 
-const Svg = (props: ChevronIconProps): React.ReactElement => (
+const SvgChevron = (props: ChevronIconProps): React.ReactElement => (
   <svg
     width={props.size ?? 24}
     height={props.size ?? 24}
@@ -32,4 +32,4 @@ const Svg = (props: ChevronIconProps): React.ReactElement => (
   </svg>
 );
 
-export default Svg;
+export default SvgChevron;
