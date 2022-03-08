@@ -10,7 +10,7 @@ export default {
 
 const StyledTtitle = styled(Text)`
   color: ${({ theme }) => theme.colors.titles};
-  marginbottom: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.texts};
