@@ -3,6 +3,7 @@ import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
 import { Icon } from "..";
 import { Heading2, Text } from "../../typography";
+import { Button } from "../Button";
 import { IconDirection } from "../Icon/Direction";
 
 export interface BannerDetailsProps {
@@ -41,9 +42,7 @@ export const Banner = ({
         <StyledHeading2 bold>
           {details?.[current]?.heading || ""}
         </StyledHeading2>
-        <span onClick={handleClose}>
-          <Icon.CrossMark />
-        </span>
+        <Button.Icon icon={<Icon.CrossMark />} onClick={handleClose} />
       </HeaderContainer>
       {details[current].content}
       <BannerControls
@@ -77,27 +76,25 @@ const BannerControls = ({
     }
   };
 
-  // TODO: we possibly need to add IconButton that replaces span and also supports disabled state
   return (
     <ControlsContainer>
-      <span onClick={handleLeftChevronClick}>
-        <Icon.Chevron
-          direction={IconDirection.Left}
-          // disabled={isFirstBanner}
-        />
-      </span>
+      <Button.Icon
+        icon={<Icon.Chevron direction={IconDirection.Left} />}
+        onClick={handleLeftChevronClick}
+        disabled={isFirstBanner}
+      />
       <StyledText bold>{`${current + 1}/${numberOfBanners}`}</StyledText>
-      <span onClick={handleRightChevronClick}>
-        <Icon.Chevron
-          direction={IconDirection.Right}
-          // disabled={isLastBanner}
-        />
-      </span>
+      <Button.Icon
+        icon={<Icon.Chevron direction={IconDirection.Right} />}
+        onClick={handleRightChevronClick}
+        disabled={isLastBanner}
+      />
     </ControlsContainer>
   );
 };
 
 const BannerContainer = styled.section`
+  color: ${({ theme }) => theme.colors.primary};
   background: ${({ theme }) => theme.colors.backgroundVariant};
   border: 2px solid ${({ theme }) => theme.colors.primary};
   box-sizing: border-box;

@@ -2,11 +2,11 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {
   Button as ButtonComponent,
-  ButtonIcon,
   ButtonIconProps,
   ButtonProps,
-  ChevronIcon,
 } from "../../src";
+import { Icon as IconComponent } from "../../src/components";
+import { IconDirection } from "../../src/components/Icon/Direction";
 
 export default {
   title: "Components/Button",
@@ -41,9 +41,9 @@ export const Outlined: ComponentStory<typeof ButtonComponent> = (
   args: ButtonProps
 ) => <ButtonComponent {...args} variant={"outlined"} />;
 
-export const Icon: ComponentStory<typeof ButtonIcon> = (
+export const Icon: ComponentStory<typeof ButtonComponent.Icon> = (
   args: ButtonIconProps
-) => <ButtonComponent {...args} />;
+) => <ButtonComponent.Icon {...args} />;
 
 Filled.args = {
   children: "Filled Button",
@@ -66,7 +66,7 @@ Outlined.args = {
 };
 
 Icon.args = {
-  icon: <ChevronIcon />,
+  icon: <IconComponent.Chevron direction={IconDirection.Left} />,
   loading: false,
   disabled: false,
   buttonSize: 24,
