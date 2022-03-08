@@ -42,9 +42,7 @@ export const Banner = ({
         <StyledHeading2 bold>
           {details?.[current]?.heading || ""}
         </StyledHeading2>
-        <span onClick={handleClose}>
-          <Icon.CrossMark />
-        </span>
+        <Button.Icon icon={<Icon.CrossMark />} onClick={handleClose} />
       </HeaderContainer>
       {details[current].content}
       <BannerControls
@@ -96,6 +94,7 @@ const BannerControls = ({
 };
 
 const BannerContainer = styled.section`
+  color: ${({ theme }) => theme.colors.primary};
   background: ${({ theme }) => theme.colors.backgroundVariant};
   border: 2px solid ${({ theme }) => theme.colors.primary};
   box-sizing: border-box;
@@ -112,7 +111,6 @@ const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const StyledHeading2 = styled(Heading2)`
