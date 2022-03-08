@@ -103,6 +103,7 @@ const StyledMenuButton = styled(Menu.Button)<{
   display: flex;
   height: 2rem;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 const StyledMenuButtonIconLabelContainer = styled.div`
