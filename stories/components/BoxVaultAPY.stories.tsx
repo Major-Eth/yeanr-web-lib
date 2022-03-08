@@ -27,12 +27,6 @@ const Template: ComponentStory<typeof BoxVaultAPYComponent> = (props) => (
       label={"Some token Name"}
       value={"43.00 %"}
     />
-    <BoxVaultAPYComponent
-      onClick={() => null}
-      address={"0x1CC481cE2BD2EC7Bf67d1Be64d4878b16078F309"}
-      label={"Another token"}
-      value={"24.54 %"}
-    />
   </StyledWrapper>
 );
 
