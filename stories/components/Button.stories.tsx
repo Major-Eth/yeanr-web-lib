@@ -5,8 +5,9 @@ import {
   ButtonIcon,
   ButtonIconProps,
   ButtonProps,
-  ChevronIcon,
+  Icon as Icons,
 } from "../../src";
+import { IconDirection } from "../../src/components/Icon/Direction";
 
 export default {
   title: "Components/Button",
@@ -66,7 +67,7 @@ Outlined.args = {
 };
 
 Icon.args = {
-  icon: <ChevronIcon />,
+  icon: <Icons.Chevron direction={IconDirection.Left} />,
   loading: false,
   disabled: false,
   buttonSize: 24,
