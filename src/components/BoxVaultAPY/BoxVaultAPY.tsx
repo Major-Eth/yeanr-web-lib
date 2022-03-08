@@ -41,9 +41,7 @@ export const BoxVaultAPY = ({
       </div>
     </StyledCol>
     <div>
-      <span onClick={() => null}>
-        <StyledChevron direction={IconDirection.Right} />
-      </span>
+      <StyledChevron direction={IconDirection.Right} />
     </div>
   </StyledBox>
 );
