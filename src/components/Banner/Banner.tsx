@@ -3,6 +3,7 @@ import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
 import { Icon } from "..";
 import { Heading2, Text } from "../../typography";
+import { Button } from "../Button";
 import { IconDirection } from "../Icon/Direction";
 
 export interface BannerDetailsProps {
@@ -77,22 +78,19 @@ const BannerControls = ({
     }
   };
 
-  // TODO: we possibly need to add IconButton that replaces span and also supports disabled state
   return (
     <ControlsContainer>
-      <span onClick={handleLeftChevronClick}>
-        <Icon.Chevron
-          direction={IconDirection.Left}
-          // disabled={isFirstBanner}
-        />
-      </span>
+      <Button.Icon
+        icon={<Icon.Chevron direction={IconDirection.Left} />}
+        onClick={handleLeftChevronClick}
+        disabled={isFirstBanner}
+      />
       <StyledText bold>{`${current + 1}/${numberOfBanners}`}</StyledText>
-      <span onClick={handleRightChevronClick}>
-        <Icon.Chevron
-          direction={IconDirection.Right}
-          // disabled={isLastBanner}
-        />
-      </span>
+      <Button.Icon
+        icon={<Icon.Chevron direction={IconDirection.Right} />}
+        onClick={handleRightChevronClick}
+        disabled={isLastBanner}
+      />
     </ControlsContainer>
   );
 };
@@ -114,6 +112,7 @@ const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const StyledHeading2 = styled(Heading2)`

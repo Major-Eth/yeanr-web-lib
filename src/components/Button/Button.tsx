@@ -17,10 +17,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface ButtonIconProps extends ButtonProps {
-  theme: DefaultTheme;
+export interface ButtonIconProps extends Omit<ButtonProps, "variant"> {
   buttonSize?: number;
-  onSafeClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 /**
@@ -37,10 +36,6 @@ export const Button = (props: ButtonProps): ReactElement | null => {
     }
   };
 
-  if ("icon" in props) {
-    return <ButtonIcon {...props} theme={theme} onSafeClick={onSafeClick} />;
-  }
-
   if (loading) {
     return (
       <StyledLabelButton {...props} disabled>
@@ -52,10 +47,18 @@ export const Button = (props: ButtonProps): ReactElement | null => {
   return <StyledLabelButton {...props} onClick={onSafeClick} />;
 };
 
-export function ButtonIcon(props: ButtonIconProps): ReactElement | null {
-  const { loading, buttonSize, theme, icon, onSafeClick } = props;
+Button.Icon = function ButtonIcon(props: ButtonIconProps): ReactElement | null {
+  const theme = useTheme();
+
+  const { loading, buttonSize, icon, disabled, onClick } = props;
 
   if (!icon) return null;
+
+  const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
+    if (!disabled && onClick) {
+      onClick(event);
+    }
+  };
 
   if (loading) {
     return <Spinner color={theme.colors.primary} />;
@@ -66,7 +69,7 @@ export function ButtonIcon(props: ButtonIconProps): ReactElement | null {
       {React.cloneElement(icon)}
     </StyledIconButton>
   );
-}
+};
 
 const FILLED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   color: ${({ theme }) => theme.colors.button.filled.text};
@@ -144,4 +147,10 @@ const StyledIconButton = styled.button<ButtonIconProps>`
   align-items: center;
   width: ${({ buttonSize }) => buttonSize ?? 24}px;
   height: ${({ buttonSize }) => buttonSize ?? 24}px;
+  cursor: pointer;
+
+  &:disabled {
+    color: ${({ theme }) => theme.colors.button.disabled.text};
+    cursor: not-allowed;
+  }
 `;
