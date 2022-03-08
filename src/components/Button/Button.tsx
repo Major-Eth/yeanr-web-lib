@@ -1,9 +1,4 @@
-import React, {
-  ButtonHTMLAttributes,
-  MouseEvent,
-  ReactNode,
-  ReactElement,
-} from "react";
+import React, { ButtonHTMLAttributes, MouseEvent, ReactElement } from "react";
 import styled, {
   css,
   DefaultTheme,
@@ -14,24 +9,27 @@ import styled, {
 import { Spinner } from "../Spinner";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
+  children?: string | ReactElement;
+  icon?: ReactElement;
   variant: "filled" | "outlined";
   loading?: boolean;
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
+export interface ButtonIconProps extends ButtonProps {
+  theme: DefaultTheme;
+  buttonSize?: number;
+  onSafeClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
-  children,
-  onClick,
-  ...props
-}: ButtonProps): ReactElement => {
+export const Button = (props: ButtonProps): ReactElement | null => {
   const theme = useTheme();
 
-  const { loading, disabled } = props;
+  const { disabled, loading, onClick } = props;
 
   const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disabled && onClick) {
@@ -39,20 +37,36 @@ export const Button = ({
     }
   };
 
+  if ("icon" in props) {
+    return <ButtonIcon {...props} theme={theme} onSafeClick={onSafeClick} />;
+  }
+
   if (loading) {
     return (
-      <StyledButton {...props} disabled>
+      <StyledLabelButton {...props} disabled>
         <Spinner color={theme.colors.icons.primary} />
-      </StyledButton>
+      </StyledLabelButton>
     );
   }
 
-  return (
-    <StyledButton onClick={onSafeClick} {...props}>
-      {children}
-    </StyledButton>
-  );
+  return <StyledLabelButton {...props} onClick={onSafeClick} />;
 };
+
+export function ButtonIcon(props: ButtonIconProps): ReactElement | null {
+  const { loading, buttonSize, theme, icon, onSafeClick } = props;
+
+  if (!icon) return null;
+
+  if (loading) {
+    return <Spinner color={theme.colors.primary} />;
+  }
+
+  return (
+    <StyledIconButton {...props} buttonSize={buttonSize} onClick={onSafeClick}>
+      {React.cloneElement(icon)}
+    </StyledIconButton>
+  );
+}
 
 const FILLED = (): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   color: ${({ theme }) => theme.colors.button.filled.text};
@@ -94,7 +108,7 @@ const VARIANTS = {
   outlined: OUTLINED,
 };
 
-const StyledButton = styled.button`
+const StyledLabelButton = styled.button`
   ${({ variant }: ButtonProps) => css`
     display: flex;
     justify-content: center;
@@ -121,4 +135,13 @@ const StyledButton = styled.button`
 
     ${VARIANTS[variant]}
   `}
+`;
+
+const StyledIconButton = styled.button<ButtonIconProps>`
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${({ buttonSize }) => buttonSize ?? 24}px;
+  height: ${({ buttonSize }) => buttonSize ?? 24}px;
 `;
