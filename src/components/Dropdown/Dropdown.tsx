@@ -1,9 +1,4 @@
-import React, {
-  Dispatch,
-  ReactElement,
-  ReactNode,
-  SetStateAction,
-} from "react";
+import React, { ReactElement, ReactNode } from "react";
 import styled, { css, useTheme } from "styled-components";
 import { Menu } from "@headlessui/react";
 import { IconDirection } from "../Icon/Direction";
@@ -20,7 +15,7 @@ export interface DropdownProps {
   buttonContent: ReactNode;
   options: DropdownOption[];
   selected?: DropdownOption;
-  setSelected: Dispatch<SetStateAction<DropdownOption | undefined>>;
+  setSelected: (option: DropdownOption) => void;
 }
 
 export const Dropdown = ({
