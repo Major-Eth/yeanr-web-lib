@@ -12,7 +12,7 @@ export interface CardStatsProps {
 }
 
 export const CardStats = ({ ...props }: CardStatsProps): ReactElement => (
-  <CardStatContainer cols={props.details?.length || 0}>
+  <CardStatContainer cols={props.details.length || 0}>
     {props.details.map((detail) => (
       <div key={detail.label}>
         <StyledText>{detail.label}</StyledText>
