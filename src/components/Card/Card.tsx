@@ -11,9 +11,6 @@ export const Card = ({
   onClick,
   ...props
 }: CardProps): ReactElement => {
-  if (onClick) {
-    return <StyledCard onClick={onClick} {...props}>{children}</StyledCard>;
-  }
   return <StyledCard {...props}>{children}</StyledCard>;
 };
 
