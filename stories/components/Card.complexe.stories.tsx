@@ -30,7 +30,7 @@ const StyledWrapper = styled.div<ColsProps>`
   gap: 1rem;
 `;
 
-const WithLabels = ({ ...props }: ExtendedCardProps): ReactElement => (
+const WithLabels = ({ onClick, title, details }: ExtendedCardProps): ReactElement => (
   <Card onClick={props.onClick}>
     <Card.Head title={props.title}>
       <span onClick={() => null}>
