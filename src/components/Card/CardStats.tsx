@@ -27,6 +27,7 @@ export const CardStats = ({ ...props }: CardStatsProps): ReactElement => (
 export interface ColsProps {
   cols: number;
 }
+
 const CardStatContainer = styled.div<ColsProps>`
   display: grid;
   grid-template-columns: ${({ cols }) => `repeat(${cols}, minmax(0, 1fr))`};
