@@ -41,14 +41,7 @@ export const Dropdown = ({
         <>
           <StyledMenuButton>
             {buttonContent}
-            <Button.Icon
-              icon={
-                <Icon.Chevron
-                  direction={open ? IconDirection.Up : IconDirection.Down}
-                  size={16}
-                />
-              }
-            />
+            <ChevronComponent open={open} />
           </StyledMenuButton>
           <StyledMenuItems>
             {options.map((option) => (
@@ -67,6 +60,14 @@ export const Dropdown = ({
         </>
       )}
     </Menu>
+  );
+};
+
+const ChevronComponent = ({ open }: { open: boolean }): ReactElement => {
+  const direction = open ? IconDirection.Up : IconDirection.Down;
+
+  return (
+    <Button.Icon icon={<Icon.Chevron direction={direction} size={16} />} />
   );
 };
 
