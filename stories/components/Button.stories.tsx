@@ -4,7 +4,6 @@ import {
   Button as ButtonComponent,
   ButtonIconProps,
   ButtonProps,
-} from "../../src";
 import { Icon as IconComponent } from "../../src/components";
 import { IconDirection } from "../../src/components/Icon/Direction";
 

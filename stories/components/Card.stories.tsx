@@ -8,9 +8,9 @@ export default {
   component: CardComponent,
 } as ComponentMeta<typeof CardComponent>;
 
-const StyledTtitle = styled(Text)`
+const StyledTitle = styled(Text)`
   color: ${({ theme }) => theme.colors.titles};
-  marginBottom: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.texts};
@@ -18,12 +18,12 @@ const StyledText = styled(Text)`
 
 const Template: ComponentStory<typeof CardComponent> = (props) => (
   <CardComponent {...props}>
-    <StyledTtitle>This is my title</StyledTtitle>
+    <StyledTitle>{"This is my title"}</StyledTitle>
     <StyledText>{`There are many like it, but this one is yours. You can always return here for a bird's-eye view of your holdings. The cards below show the total balance and utilization of your wallet, and the holdings and performance for every Yearn product you use.`}</StyledText>
   </CardComponent>
 );
 
 export const Card = Template.bind({});
 Card.args = {
-  withHover: true
+  withHover: true,
 };
