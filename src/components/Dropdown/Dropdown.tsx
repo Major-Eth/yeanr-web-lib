@@ -1,71 +1,67 @@
 import React, {
+  Dispatch,
   ReactElement,
   ReactNode,
-  RefObject,
-  useLayoutEffect,
-  useRef,
-  useState,
+  SetStateAction,
 } from "react";
-import styled, { DefaultTheme, useTheme } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 import { Menu } from "@headlessui/react";
-import { ChevronIcon } from "../../../stories/Icon.stories";
 import { IconDirection } from "../Icon/Direction";
 import { Text } from "../../typography";
+import { Button } from "../Button";
+import Icon from "../Icon";
 
-interface Option {
+export interface DropdownOption {
   value: string;
   label: string;
 }
 
 export interface DropdownProps {
-  icon: ReactElement;
-  label: string;
-  options: Option[];
+  buttonContent: ReactNode;
+  options: DropdownOption[];
+  selected?: DropdownOption;
+  setSelected: Dispatch<SetStateAction<DropdownOption | undefined>>;
 }
 
 export const Dropdown = ({
-  icon,
-  label,
+  buttonContent,
   options,
+  selected,
+  setSelected,
 }: DropdownProps): ReactElement | null => {
   const theme = useTheme();
-  const [width, setWidth] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    if (!ref.current) return;
-
-    const observer = new ResizeObserver(([{ contentRect }]) => {
-      setWidth(contentRect.width);
-    });
-
-    observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, [ref, width]);
+  const isDropdownOptionSelected = ({ value }: DropdownOption): boolean => {
+    return value === selected?.value;
+  };
 
   return (
     <Menu>
       {({ open }) => (
         <>
-          <StyledMenuButton ref={ref}>
-            <MenuButtonIconLabel theme={theme} icon={icon} label={label} />
-            {/* TODO: Use the new ChevronIcon https://github.com/Major-Eth/yearn-web-lib/pull/26 */}
-            <div style={{ padding: "0.5rem" }}>
-              <ChevronIcon
-                direction={open ? IconDirection.Up : IconDirection.Down}
-              />
-            </div>
+          <StyledMenuButton>
+            {buttonContent}
+            <Button.Icon
+              icon={
+                <Icon.Chevron
+                  direction={open ? IconDirection.Up : IconDirection.Down}
+                  size={16}
+                />
+              }
+            />
           </StyledMenuButton>
-          <StyledMenuItems width={width}>
-            {options.map(({ value, label }) => (
-              <StyledMenuItem key={value}>
+          <StyledMenuItems>
+            {options.map((option) => (
+              <Menu.Item key={option.value} onClick={() => setSelected(option)}>
                 {({ active }: { active: boolean }) => (
-                  <Text color={theme.colors.primary}>
-                    {active ? `-> ${label}` : label}
-                  </Text>
+                  <StyledMenuItem
+                    active={active || isDropdownOptionSelected(option)}
+                    color={theme.colors.primary}
+                  >
+                    {option.label}
+                  </StyledMenuItem>
                 )}
-              </StyledMenuItem>
+              </Menu.Item>
             ))}
           </StyledMenuItems>
         </>
@@ -74,27 +70,7 @@ export const Dropdown = ({
   );
 };
 
-export const MenuButtonIconLabel = ({
-  icon,
-  label,
-  theme,
-}: {
-  icon?: ReactElement;
-  label: string;
-  theme: DefaultTheme;
-}): ReactElement => {
-  return (
-    <StyledMenuButtonIconLabelContainer>
-      {icon && <StyledIconContainer>{icon}</StyledIconContainer>}
-      <Text color={theme.colors.primary}>{label}</Text>
-    </StyledMenuButtonIconLabelContainer>
-  );
-};
-
-const StyledMenuButton = styled(Menu.Button)<{
-  children: ReactNode;
-  ref?: RefObject<HTMLDivElement>;
-}>`
+const StyledMenuButton = styled(Menu.Button)`
   align-items: center;
   background: ${({ theme }) => theme.colors.backgroundVariant};
   border-radius: 0.5rem;
@@ -104,35 +80,31 @@ const StyledMenuButton = styled(Menu.Button)<{
   height: 2rem;
   justify-content: space-between;
   cursor: pointer;
+  padding-left: 0.75rem;
 `;
 
-const StyledMenuButtonIconLabelContainer = styled.div`
-  align-items: center;
-  display: flex;
-`;
-
-const StyledIconContainer = styled.div`
-  align-items: center;
-  display: flex;
-  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
-`;
-
-const StyledMenuItems = styled(Menu.Items)<{
-  children: ReactNode;
-  width: number;
-}>`
+const StyledMenuItems = styled(Menu.Items)`
   background: ${({ theme }) => theme.colors.backgroundVariant};
   border-radius: 0.5rem;
   border: 0;
   box-sizing: border-box;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  gap: 0.5rem;
   margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  width: ${({ width }) => width}px;
 `;
 
-const StyledMenuItem = styled(Menu.Item)`
+const StyledMenuItem = styled(Text)<{
+  children: ReactNode;
+  active: boolean;
+}>`
   cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.75rem;
+
+  ${({ active }) =>
+    active &&
+    css`
+      color: ${({ theme }) => theme.colors.surface};
+      background: ${({ theme }) => theme.colors.primary}E6; // 90% opacity
+    `}
 `;
