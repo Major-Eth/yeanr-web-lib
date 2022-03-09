@@ -31,7 +31,7 @@ const StyledWrapper = styled.div<ColsProps>`
 `;
 
 const WithLabels = ({ onClick, title, details }: ExtendedCardProps): ReactElement => (
-  <Card onClick={props.onClick}>
+  <Card onClick={onClick}>
     <Card.Head title={props.title}>
       <span onClick={() => null}>
         <StyledChevron direction={IconDirection.Right} />
