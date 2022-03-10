@@ -4,7 +4,8 @@ import {
   Button as ButtonComponent,
   ButtonIconProps,
   ButtonProps,
-import { Icon as IconComponent } from "../../src/components";
+  Icon as IconComponent,
+} from "../../src/components";
 import { IconDirection } from "../../src/components/Icon/Direction";
 
 export default {
