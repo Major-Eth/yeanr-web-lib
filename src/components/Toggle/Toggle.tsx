@@ -5,28 +5,25 @@ import styled, { css } from "styled-components"
 export type ToggleProps = {
     onCheck: (enabled: boolean) => void
     checked: boolean
-    width?: number
-    height?: number
+    width: number
+    height: number
 }
 
 const StyledSwitch = styled(Switch)<ToggleProps>`
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-duration: .2s;
     transition-property: background-color,border-color,color,fill,stroke;
-    border-radius: 9999px;
     border-color: transparent;
     background-color: ${({checked}) => checked ? 'blue' : 'green'};
+    border-width: 2px;
+    border-radius: 9999px;
     width: ${({ width }) => width + "px"};
     height: ${({ height }) => height + "px"};
     position: relative;
     display: inline-flex;
     flex-shrink: 0;
-    border-width: 2px;
-    border: 0px;
+    padding: 0;
     cursor: pointer;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
     outline: 2px solid transparent;
     outline-offset: 2px;
 `
@@ -54,17 +51,15 @@ export const Toggle = (props: ToggleProps) => {
         <StyledSwitch
             checked={props.checked}
             onChange={props.onCheck}
-            height={34}
-            width={74}
-            // className={`focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+            height={props.height}
+            width={props.width}
         >
             <StyledSpan
                 checked={props.checked}
-                // onCheck={props.onCheck}
+                onCheck={props.onCheck}
                 aria-hidden="true"
-                height={34}
-                width={34}
-                // className={`${enabled ? 'translate-x-9' : 'translate-x-0'}`}
+                height={props.height - 4} //border
+                width={props.height - 4} //border
             />
         </StyledSwitch>
     )

@@ -21,5 +21,5 @@ const Template: ComponentStory<typeof ToggleComponent> = (props) => {
 export const Toggle = Template.bind({});
 Toggle.args = {
   width: 74,
-  height: 34,
+  height: 38,
 };
