@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from "react";
-import styled, { css, useTheme } from "styled-components";
+import styled, { css } from "styled-components";
 import { Menu } from "@headlessui/react";
 import { IconDirection } from "../Icon/Direction";
 import { Text } from "../../typography";
@@ -24,8 +24,6 @@ export const Dropdown = ({
   selected,
   setSelected,
 }: DropdownProps): ReactElement => {
-  const theme = useTheme();
-
   const isDropdownOptionSelected = ({ value }: DropdownOption): boolean => {
     return value === selected?.value;
   };
@@ -41,10 +39,9 @@ export const Dropdown = ({
           <StyledMenuItems>
             {options.map((option) => (
               <Menu.Item key={option.value} onClick={() => setSelected(option)}>
-                {({ active }) => (
+                {({ active }: { active: boolean }) => (
                   <StyledMenuItem
                     active={active || isDropdownOptionSelected(option)}
-                    color={theme.colors.primary}
                   >
                     {option.label}
                   </StyledMenuItem>
@@ -90,9 +87,9 @@ const StyledMenuItems = styled(Menu.Items)`
 `;
 
 const StyledMenuItem = styled(Text)<{
-  children: ReactNode;
   active: boolean;
 }>`
+  color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
   border-radius: 0.5rem;
   padding: 0.25rem 0.75rem;
