@@ -41,7 +41,7 @@ export const Dropdown = ({
           <StyledMenuItems>
             {options.map((option) => (
               <Menu.Item key={option.value} onClick={() => setSelected(option)}>
-                {({ active }: { active: boolean }) => (
+                {({ active }) => (
                   <StyledMenuItem
                     active={active || isDropdownOptionSelected(option)}
                     color={theme.colors.primary}
