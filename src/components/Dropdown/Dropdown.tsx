@@ -23,7 +23,7 @@ export const Dropdown = ({
   options,
   selected,
   setSelected,
-}: DropdownProps): ReactElement | null => {
+}: DropdownProps): ReactElement => {
   const theme = useTheme();
 
   const isDropdownOptionSelected = ({ value }: DropdownOption): boolean => {
