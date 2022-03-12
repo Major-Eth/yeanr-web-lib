@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from "react";
+import React, { ReactElement } from "react";
 import styled, { css } from "styled-components";
 import { Menu } from "@headlessui/react";
 import { IconDirection } from "../Icon/Direction";
@@ -12,15 +12,15 @@ export interface DropdownOption {
 }
 
 export interface DropdownProps {
-  buttonContent: ReactNode;
   options: DropdownOption[];
+  defaultOption: DropdownOption;
   selected?: DropdownOption;
   setSelected: (option: DropdownOption) => void;
 }
 
 export const Dropdown = ({
-  buttonContent,
   options,
+  defaultOption,
   selected,
   setSelected,
 }: DropdownProps): ReactElement => {
@@ -33,7 +33,7 @@ export const Dropdown = ({
       {({ open }) => (
         <>
           <StyledMenuButton>
-            {buttonContent}
+            <StyledLabel>{selected?.label || defaultOption.label}</StyledLabel>
             <ChevronComponent open={open} />
           </StyledMenuButton>
           <StyledMenuItems>
@@ -74,6 +74,10 @@ const StyledMenuButton = styled(Menu.Button)`
   justify-content: space-between;
   cursor: pointer;
   padding-left: 0.75rem;
+`;
+
+const StyledLabel = styled(Text)`
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const StyledMenuItems = styled(Menu.Items)`
