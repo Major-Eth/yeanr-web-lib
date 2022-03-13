@@ -55,13 +55,12 @@ export const Dropdown = ({
   );
 };
 
-const ChevronComponent = ({ open }: { open: boolean }): ReactElement => {
-  const direction = open ? IconDirection.Up : IconDirection.Down;
-
-  return (
-    <Button.Icon icon={<Icon.Chevron direction={direction} size={16} />} />
-  );
-};
+const ChevronComponent = ({ open }: { open: boolean }): ReactElement => (
+  <StyledButtonIcon
+    icon={<Icon.Chevron direction={IconDirection.Down} size={16} />}
+    open={open}
+  />
+);
 
 const StyledMenuButton = styled(Menu.Button)`
   align-items: center;
@@ -76,13 +75,22 @@ const StyledMenuButton = styled(Menu.Button)`
   padding-left: 0.75rem;
 `;
 
+const StyledButtonIcon = styled(Button.Icon)<{
+  open: boolean;
+}>`
+  transform: rotate(0deg);
+  transform: ${({ open }) => (open ? `rotate(180deg)` : "")};
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+`;
+
 const StyledLabel = styled(Text)`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
 const StyledMenuItems = styled(Menu.Items)`
   background: ${({ theme }) => theme.colors.backgroundVariant};
-  border-radius: 0.5rem;
   border: 0;
   box-sizing: border-box;
   display: inline-flex;
