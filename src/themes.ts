@@ -8,6 +8,7 @@ export interface ThemeType {
     primary: string;
     primaryVariant: string;
     secondary: string;
+    secondaryVariant: string;
     titles: string;
     titlesVariant: string;
     texts: string;
@@ -45,6 +46,7 @@ export const defaultTheme: ThemeType = {
     primary: "#0657F9",
     primaryVariant: "#004ADF",
     secondary: "#E0EAFF",
+    secondaryVariant: "#C6D7F9",
     titles: "#001746",
     titlesVariant: "#0657F9",
     texts: "#7F8DA9",
@@ -82,6 +84,7 @@ export const light: ThemeType = {
     primary: "#0657F9",
     primaryVariant: "#004ADF",
     secondary: "#E0EAFF",
+    secondaryVariant: "#C6D7F9",
     titles: "#001746",
     titlesVariant: "#0657F9",
     texts: "#7F8DA9",
@@ -119,6 +122,7 @@ export const dark: ThemeType = {
     primary: "#FFFFFF",
     primaryVariant: "#FFFFFF",
     secondary: "#272727",
+    secondaryVariant: "#202020",
     titles: "#FFFFFF",
     titlesVariant: "#FFFFFF",
     texts: "#A8A8A8",
@@ -156,6 +160,7 @@ export const blue: ThemeType = {
     primary: "#0657F9",
     primaryVariant: "#004ADF",
     secondary: "#0657F9",
+    secondaryVariant: "#004ADF",
     titles: "#FFFFFF",
     titlesVariant: "#FFFFFF",
     texts: "#7F8DA9",
