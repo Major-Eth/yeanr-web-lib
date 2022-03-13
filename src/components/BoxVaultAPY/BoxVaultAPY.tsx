@@ -1,5 +1,4 @@
 import React, { MouseEvent, ReactElement } from "react";
-// eslint-disable-next-line import/no-unresolved
 import Token from "@yearn/yearn-web-assets";
 import styled, { css } from "styled-components";
 import { Heading1, Text } from "../../typography";
