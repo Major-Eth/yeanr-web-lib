@@ -73,6 +73,7 @@ const StyledMenuButton = styled(Menu.Button)`
   justify-content: space-between;
   cursor: pointer;
   padding-left: 0.75rem;
+  overflow: hidden;
 `;
 
 const StyledButtonIcon = styled(Button.Icon)<{
