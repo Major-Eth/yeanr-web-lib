@@ -111,6 +111,6 @@ const StyledMenuItem = styled(Text)<{
     active &&
     css`
       color: ${({ theme }) => theme.colors.surface};
-      background: ${({ theme }) => theme.colors.primary}E6; // 90% opacity
+      background: ${({ theme }) => theme.colors.secondaryVariant};
     `}
 `;
