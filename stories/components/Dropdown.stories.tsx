@@ -19,6 +19,78 @@ const options: DropdownOption[] = [
     value: "default",
     label: "Default Option",
   },
+  {
+    value: "foo",
+    label: "Foo",
+  },
+  {
+    value: "bar",
+    label: "I'm a very long dropdown option",
+  },
+  {
+    value: "default",
+    label: "Default Option",
+  },
+  {
+    value: "foo",
+    label: "Foo",
+  },
+  {
+    value: "bar",
+    label: "I'm a very long dropdown option",
+  },
+  {
+    value: "default",
+    label: "Default Option",
+  },
+  {
+    value: "foo",
+    label: "Foo",
+  },
+  {
+    value: "bar",
+    label: "I'm a very long dropdown option",
+  },
+  {
+    value: "default",
+    label: "Default Option",
+  },
+  {
+    value: "foo",
+    label: "Foo",
+  },
+  {
+    value: "bar",
+    label: "I'm a very long dropdown option",
+  },
+  {
+    value: "default",
+    label: "Default Option",
+  },
+  {
+    value: "foo",
+    label: "Foo",
+  },
+  {
+    value: "bar",
+    label: "I'm a very long dropdown option",
+  },
+  {
+    value: "default",
+    label: "Default Option",
+  },
+  {
+    value: "foo",
+    label: "Foo",
+  },
+  {
+    value: "bar",
+    label: "I'm a very long dropdown option",
+  },
+  {
+    value: "default",
+    label: "Default Option",
+  },
 ];
 
 export default {
