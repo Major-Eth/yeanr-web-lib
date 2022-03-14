@@ -30,14 +30,18 @@ const StyledWrapper = styled.div<ColsProps>`
   gap: 1rem;
 `;
 
-const WithLabels = ({ onClick, title, details }: ExtendedCardProps): ReactElement => (
+const WithLabels = ({
+  onClick,
+  title,
+  details,
+}: ExtendedCardProps): ReactElement => (
   <Card onClick={onClick}>
-    <Card.Head title={props.title}>
+    <Card.Head title={title}>
       <span onClick={() => null}>
         <StyledChevron direction={IconDirection.Right} />
       </span>
     </Card.Head>
-    <Card.Stats details={props.details} />
+    <Card.Stats details={details} />
   </Card>
 );
 

@@ -36,14 +36,12 @@ export const BoxVaultAPY = ({
       <div>
         <StyledText>{label}</StyledText>
         <StyledHeading1 bold forwardedAs={"p"}>
-          {value}
+          {value || " "}
         </StyledHeading1>
       </div>
     </StyledCol>
     <div>
-      <span onClick={() => null}>
-        <StyledChevron direction={IconDirection.Right} />
-      </span>
+      <StyledChevron direction={IconDirection.Right} />
     </div>
   </StyledBox>
 );
@@ -80,6 +78,7 @@ const StyledText = styled(Text)`
 const StyledHeading1 = styled(Heading1)`
   color: ${({ theme }) => theme.colors.titles};
   font-variant-numeric: tabular-nums;
+  white-space: pre-wrap;
 `;
 const StyledChevron = styled(Icon.Chevron)`
   color: ${({ theme }) => theme.colors.primary};

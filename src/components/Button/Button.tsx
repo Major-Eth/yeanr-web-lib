@@ -1,9 +1,4 @@
-import React, {
-  ButtonHTMLAttributes,
-  MouseEvent,
-  ReactNode,
-  ReactElement,
-} from "react";
+import React, { ButtonHTMLAttributes, MouseEvent, ReactElement } from "react";
 import styled, {
   css,
   DefaultTheme,
@@ -14,24 +9,26 @@ import styled, {
 import { Spinner } from "../Spinner";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
+  children?: string | ReactElement;
+  icon?: ReactElement;
   variant: "filled" | "outlined";
   loading?: boolean;
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
+export interface ButtonIconProps extends Omit<ButtonProps, "variant"> {
+  buttonSize?: number;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
-  children,
-  onClick,
-  ...props
-}: ButtonProps): ReactElement => {
+export const Button = (props: ButtonProps): ReactElement | null => {
   const theme = useTheme();
 
-  const { loading, disabled } = props;
+  const { disabled, loading, onClick } = props;
 
   const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
     if (!disabled && onClick) {
@@ -41,16 +38,36 @@ export const Button = ({
 
   if (loading) {
     return (
-      <StyledButton {...props} disabled>
+      <StyledLabelButton {...props} disabled>
         <Spinner color={theme.colors.icons.primary} />
-      </StyledButton>
+      </StyledLabelButton>
     );
   }
 
+  return <StyledLabelButton {...props} onClick={onSafeClick} />;
+};
+
+Button.Icon = function ButtonIcon(props: ButtonIconProps): ReactElement | null {
+  const theme = useTheme();
+
+  const { loading, buttonSize, icon, disabled, onClick } = props;
+
+  if (!icon) return null;
+
+  const onSafeClick = (event: MouseEvent<HTMLButtonElement>): void => {
+    if (!disabled && onClick) {
+      onClick(event);
+    }
+  };
+
+  if (loading) {
+    return <Spinner color={theme.colors.primary} />;
+  }
+
   return (
-    <StyledButton onClick={onSafeClick} {...props}>
-      {children}
-    </StyledButton>
+    <StyledIconButton {...props} buttonSize={buttonSize} onClick={onSafeClick}>
+      {React.cloneElement(icon)}
+    </StyledIconButton>
   );
 };
 
@@ -94,7 +111,7 @@ const VARIANTS = {
   outlined: OUTLINED,
 };
 
-const StyledButton = styled.button`
+const StyledLabelButton = styled.button`
   ${({ variant }: ButtonProps) => css`
     display: flex;
     justify-content: center;
@@ -121,4 +138,19 @@ const StyledButton = styled.button`
 
     ${VARIANTS[variant]}
   `}
+`;
+
+const StyledIconButton = styled.button<ButtonIconProps>`
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${({ buttonSize }) => buttonSize ?? 24}px;
+  height: ${({ buttonSize }) => buttonSize ?? 24}px;
+  cursor: pointer;
+
+  &:disabled {
+    color: ${({ theme }) => theme.colors.button.disabled.text};
+    cursor: not-allowed;
+  }
 `;

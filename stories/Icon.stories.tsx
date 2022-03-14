@@ -1,10 +1,9 @@
 import { ComponentMeta } from "@storybook/react";
 import React from "react";
 import { Icon } from "../src/components";
-import {
-  IconDirection,
-  IconDirectionProps,
-} from "../src/components/Icon/Direction";
+import { ArrowIconProps } from "../src/components/Icon/Arrow";
+import { ChevronIconProps } from "../src/components/Icon/Chevron";
+import { IconDirection } from "../src/components/Icon/Direction";
 import { IconProps } from "../src/components/Icon/Icon";
 
 export default {
@@ -23,13 +22,13 @@ export const AddIcon = (args: IconProps): React.ReactElement => (
 export const ArbitrumIcon = (args: IconProps): React.ReactElement => (
   <Icon.Arbitrum {...args} />
 );
-export const ArrowIcon = (args: IconDirectionProps): React.ReactElement => (
+export const ArrowIcon = (args: ArrowIconProps): React.ReactElement => (
   <Icon.Arrow {...args} />
 );
 export const CheckmarkIcon = (args: IconProps): React.ReactElement => (
   <Icon.Checkmark {...args} />
 );
-export const ChevronIcon = (args: IconDirectionProps): React.ReactElement => (
+export const ChevronIcon = (args: ChevronIconProps): React.ReactElement => (
   <Icon.Chevron {...args} />
 );
 export const CopyIcon = (args: IconProps): React.ReactElement => (
