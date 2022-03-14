@@ -33,9 +33,11 @@ const CardStatContainer = styled.div<ColsProps>`
   grid-template-columns: ${({ cols }) => `repeat(${cols}, minmax(0, 1fr))`};
   gap: 1rem;
 `;
+
 const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.texts};
 `;
+
 const StyledHeading1 = styled(Heading1)`
   color: ${({ theme }) => theme.colors.titles};
   font-variant-numeric: tabular-nums;
