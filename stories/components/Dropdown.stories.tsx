@@ -20,76 +20,52 @@ const options: DropdownOption[] = [
     label: "Default Option",
   },
   {
-    value: "foo",
-    label: "Foo",
+    value: "Faa",
+    label: "Faa",
   },
   {
-    value: "bar",
-    label: "I'm a very long dropdown option",
+    value: "barr",
+    label: "I'm another very long dropdown option",
   },
   {
-    value: "default",
-    label: "Default Option",
+    value: "Hello",
+    label: "Hello world",
   },
   {
-    value: "foo",
-    label: "Foo",
+    value: "en",
+    label: "English",
   },
   {
-    value: "bar",
-    label: "I'm a very long dropdown option",
+    value: "fr",
+    label: "French",
   },
   {
-    value: "default",
-    label: "Default Option",
+    value: "es",
+    label: "Spanish",
   },
   {
-    value: "foo",
-    label: "Foo",
+    value: "ru",
+    label: "Russian",
   },
   {
-    value: "bar",
-    label: "I'm a very long dropdown option",
+    value: "Az",
+    label: "Azerty",
   },
   {
-    value: "default",
-    label: "Default Option",
+    value: "qw",
+    label: "Qwerty",
   },
   {
-    value: "foo",
-    label: "Foo",
+    value: "bep",
+    label: "Bepo",
   },
   {
-    value: "bar",
-    label: "I'm a very long dropdown option",
+    value: "as",
+    label: "Asdfg",
   },
   {
-    value: "default",
-    label: "Default Option",
-  },
-  {
-    value: "foo",
-    label: "Foo",
-  },
-  {
-    value: "bar",
-    label: "I'm a very long dropdown option",
-  },
-  {
-    value: "default",
-    label: "Default Option",
-  },
-  {
-    value: "foo",
-    label: "Foo",
-  },
-  {
-    value: "bar",
-    label: "I'm a very long dropdown option",
-  },
-  {
-    value: "default",
-    label: "Default Option",
+    value: "last",
+    label: "One last Option",
   },
 ];
 
