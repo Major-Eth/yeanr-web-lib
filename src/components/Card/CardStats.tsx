@@ -11,9 +11,9 @@ export interface CardStatsProps {
   details: CardStatsDetails[];
 }
 
-export const CardStats = ({ ...props }: CardStatsProps): ReactElement => (
-  <CardStatContainer cols={props.details.length || 0}>
-    {props.details.map((detail) => (
+export const CardStats = ({ details }: CardStatsProps): ReactElement => (
+  <CardStatContainer cols={details.length || 0}>
+    {details.map((detail) => (
       <div key={detail.label}>
         <StyledText>{detail.label}</StyledText>
         <StyledHeading1 bold forwardedAs={"p"}>
