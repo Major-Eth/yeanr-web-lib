@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 export interface CardProps {
   children: ReactNode;
-  onClick?: MouseEventHandler | null;
+  onClick?: () => void;
 }
 
 export const Card = ({
