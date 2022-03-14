@@ -74,6 +74,12 @@ const StyledMenuButton = styled(Menu.Button)`
   cursor: pointer;
   padding-left: 0.75rem;
   overflow: hidden;
+  &:hover {
+    background: ${({ theme }) => theme.colors.secondaryVariant};
+    transition-property: background;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
 `;
 
 const StyledButtonIcon = styled(Button.Icon)<{
@@ -94,9 +100,11 @@ const StyledMenuItems = styled(Menu.Items)`
   background: ${({ theme }) => theme.colors.backgroundVariant};
   border: 0;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow-y: scroll;
+  width: fit-content;
+  max-height: 15rem;
   box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
 `;
@@ -106,8 +114,10 @@ const StyledMenuItem = styled(Text)<{
 }>`
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
-  overflow: hidden;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 1rem 0.25rem 0.75rem;
+  transition-property: background;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 
   ${({ active }) =>
     active &&

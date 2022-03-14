@@ -19,6 +19,54 @@ const options: DropdownOption[] = [
     value: "default",
     label: "Default Option",
   },
+  {
+    value: "Faa",
+    label: "Faa",
+  },
+  {
+    value: "barr",
+    label: "I'm another very long dropdown option",
+  },
+  {
+    value: "Hello",
+    label: "Hello world",
+  },
+  {
+    value: "en",
+    label: "English",
+  },
+  {
+    value: "fr",
+    label: "French",
+  },
+  {
+    value: "es",
+    label: "Spanish",
+  },
+  {
+    value: "ru",
+    label: "Russian",
+  },
+  {
+    value: "Az",
+    label: "Azerty",
+  },
+  {
+    value: "qw",
+    label: "Qwerty",
+  },
+  {
+    value: "bep",
+    label: "Bepo",
+  },
+  {
+    value: "as",
+    label: "Asdfg",
+  },
+  {
+    value: "last",
+    label: "One last Option",
+  },
 ];
 
 export default {
