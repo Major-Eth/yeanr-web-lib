@@ -93,6 +93,8 @@ const StyledLabel = styled(Text)`
 const StyledMenuItems = styled(Menu.Items)`
   background: ${({ theme }) => theme.colors.backgroundVariant};
   border: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
@@ -104,13 +106,12 @@ const StyledMenuItem = styled(Text)<{
 }>`
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
-  border-radius: 0.5rem;
+  overflow: hidden;
   padding: 0.25rem 0.75rem;
 
   ${({ active }) =>
     active &&
     css`
-      color: ${({ theme }) => theme.colors.surface};
       background: ${({ theme }) => theme.colors.secondaryVariant};
     `}
 `;
