@@ -11,7 +11,7 @@ export default {
   component: Card,
 } as ComponentMeta<typeof Card>;
 
-interface ExtendedCardProps {
+interface ComplexCardProps {
   title: string;
   onClick?: () => void;
   details: CardStatsDetails[];
@@ -34,7 +34,7 @@ const WithLabels = ({
   onClick,
   title,
   details,
-}: ExtendedCardProps): ReactElement => (
+}: ComplexCardProps): ReactElement => (
   <Card onClick={onClick}>
     <Card.Head title={title}>
       <span onClick={() => null}>
@@ -45,7 +45,7 @@ const WithLabels = ({
   </Card>
 );
 
-export const Cards = (props: ExtendedCardProps): ReactElement => (
+export const Cards = (props: ComplexCardProps): ReactElement => (
   <StyledWrapper cols={1}>
     <StyledWrapper cols={2}>
       <WithLabels {...props} />
