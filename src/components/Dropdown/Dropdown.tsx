@@ -80,7 +80,7 @@ const StyledButtonIcon = styled(Button.Icon)<{
   open: boolean;
 }>`
   transform: rotate(0deg);
-  transform: ${({ open }) => (open ? `rotate(180deg)` : "")};
+  transform: ${({ open }) => (open ? 'rotate(180deg)' : "")};
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
