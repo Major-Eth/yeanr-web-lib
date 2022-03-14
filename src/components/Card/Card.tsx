@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, ReactNode, ReactElement } from "react";
+import React, { ReactNode, ReactElement } from "react";
 import styled, { css } from "styled-components";
 
 export interface CardProps {

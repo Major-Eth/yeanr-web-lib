@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { MouseEventHandler, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
 import { Card, Icon } from "../../src";
@@ -13,7 +13,7 @@ export default {
 
 interface ExtendedCardProps {
   title: string;
-  onClick?: MouseEventHandler | null;
+  onClick?: () => void;
   details: CardStatsDetails[];
 }
 
