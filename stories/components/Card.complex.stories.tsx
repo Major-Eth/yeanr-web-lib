@@ -7,7 +7,7 @@ import { IconDirection } from "../../src/components/Icon/Direction";
 import { CardStatsDetails } from "../../src/components/Card/CardStats";
 
 export default {
-  title: "Components/Card/Complexe",
+  title: "Components/Card/Complex",
   component: Card,
 } as ComponentMeta<typeof Card>;
 
