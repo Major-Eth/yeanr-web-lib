@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 
 export default {
-  title: "Typography",
+  title: "Components/Typography",
   component: Heading1Component,
   argTypes: {
     children: {
