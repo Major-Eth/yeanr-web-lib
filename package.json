@@ -27,7 +27,7 @@
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
-    "@storybook/react": "^6.4.19",
+    "@storybook/react": "^6.1.21",
     "@storybook/testing-library": "^0.0.9",
     "@types/styled-components": "^5.1.24",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
