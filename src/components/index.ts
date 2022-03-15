@@ -6,3 +6,4 @@ export * from "./Card";
 export * from "./BoxVaultAPY";
 export * from "./Dropdown";
 export * from "./Spinner";
+export * from "./Navbar";
