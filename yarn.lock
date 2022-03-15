@@ -2978,6 +2978,11 @@
   resolved "https://npm.pkg.github.com/download/@yearn/yearn-web-assets/1.0.4/53bf421500b5fa4816d72582e7f402012d8249a84bd69181c2ef456f3622bf66#b847b1bf781dfc155f564852bbe9bd277a6b6aab"
   integrity sha512-13ESawnu6aGk5keyJITAhzqAAvSo2lfrKlTbKIjY9tml/uf01KwBJp1uvNO3g6R3LtwNKIo1asb+GCVqAw+AVg==
 
+"@yearn/yearn-web-themes@^1.1.1":
+  version "1.1.1"
+  resolved "https://npm.pkg.github.com/download/@yearn/yearn-web-themes/1.1.1/c08f5dbcba9b52f22539c2b44742ff0ad5be3d745324a1063e221a84c4958cd8#edd355fb744651ac928b9d7a0e4db2bb81b7aa6f"
+  integrity sha512-kvpkOQrqxvNAM8/aIupLAAN2kYCSd3MBZt9ivzhPwDDU0AX+PWMZVNYDejzUo6UKtkX3zY0peOozfLU6bXGtTg==
+
 accepts@~1.3.5, accepts@~1.3.8:
   version "1.3.8"
   resolved "https://registry.npmjs.org/accepts/-/accepts-1.3.8.tgz"

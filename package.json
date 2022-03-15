@@ -49,8 +49,9 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
-    "@yearn/yearn-web-assets": "^1.0.4",
     "@headlessui/react": "1.5.0",
+    "@yearn/yearn-web-assets": "^1.0.4",
+    "@yearn/yearn-web-themes": "^1.1.1",
     "eslint-plugin-prettier": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
