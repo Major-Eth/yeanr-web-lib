@@ -1,6 +1,6 @@
 {
   "name": "@yearn/yearn-web-lib",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "Yearn",
   "description": "Basic web library for Yearn's projects",
   "main": "./lib/cjs/index.js",
