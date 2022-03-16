@@ -3,12 +3,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { defaultTheme, ThemeType } from "../themes";
 
 const GlobalStyles = createGlobalStyle`
-    @font-face {
-        font-family: 'Roboto';
-        src: local('Roboto'), local('Roboto');
-        font-weight: 700;
-        font-style: normal;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@500;700&display=swap');
 
     body {
       font-family: 'Roboto', ui-sans-serif, system-ui, -apple-system,
