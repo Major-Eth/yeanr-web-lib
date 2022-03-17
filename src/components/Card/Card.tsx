@@ -1,14 +1,20 @@
 import React, { ReactNode, ReactElement } from "react";
 import styled, { css } from "styled-components";
+import { CardHead } from "./CardHead";
+import { CardStats } from "./CardStats";
 
 export interface CardProps {
   children: ReactNode;
-  withHover?: boolean;
+  onClick?: () => void;
 }
 
-export const Card = ({ children, ...props }: CardProps): ReactElement => (
-  <StyledCard {...props}>{children}</StyledCard>
-);
+export const Card = ({
+  children,
+  onClick,
+  ...props
+}: CardProps): ReactElement => {
+  return <StyledCard {...props}>{children}</StyledCard>;
+};
 
 const StyledCard = styled.section<CardProps>`
   background: ${({ theme }) => theme.colors.surface};
@@ -18,8 +24,8 @@ const StyledCard = styled.section<CardProps>`
   transition-property: background box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  ${({ withHover }) =>
-    withHover &&
+  ${({ onClick }) =>
+    onClick &&
     css`
       cursor: pointer;
       &:hover {
@@ -28,3 +34,6 @@ const StyledCard = styled.section<CardProps>`
       }
     `}
 `;
+
+Card.Head = CardHead;
+Card.Stats = CardStats;
