@@ -1,5 +1,7 @@
 import React, { ReactNode, ReactElement } from "react";
 import styled, { css } from "styled-components";
+import { CardHead } from "./CardHead";
+import { CardStats } from "./CardStats";
 
 export interface CardProps {
   children: ReactNode;
@@ -32,3 +34,6 @@ const StyledCard = styled.section<CardProps>`
       }
     `}
 `;
+
+Card.Head = CardHead;
+Card.Stats = CardStats;
