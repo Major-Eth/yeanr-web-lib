@@ -7,28 +7,27 @@ export type SwitchProps = {
   checked: boolean;
   width: number;
   height: number;
-  borderWidth?: number;
 };
 
 const borderRadius = 9999;
 const borderWidth = 4;
 
 const StyledSwitch = styled(SwitchHeadlessUI)<SwitchProps>`
-    border-radius: ${borderRadius}px;
-    background-color: ${({ checked, theme }) =>
-      checked ? theme.colors.background : theme.colors.secondary};
-    border-color: transparent;
-    border-width: ${borderWidth}"px"};
-    width: ${({ width }) => width + "px"};
-    height: ${({ height }) => height + "px"};
-    outline: solid;
-    outline-color: ${({ theme }) => theme.colors.primary};
-    outline-width: 1px;
-    position: relative;
-    display: inline-flex;
-    flex-shrink: 0;
-    padding: 0;
-    cursor: pointer;
+  border-radius: ${borderRadius}px;
+  background-color: ${({ checked, theme }) =>
+    checked ? theme.colors.background : theme.colors.secondary};
+  border-color: transparent;
+  border-width: ${borderWidth + "px"};
+  width: ${({ width }) => width + "px"};
+  height: ${({ height }) => height + "px"};
+  outline: solid;
+  outline-color: ${({ theme }) => theme.colors.primary};
+  outline-width: 1px;
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+  cursor: pointer;
 `;
 
 const StyledSpan = styled.span`
