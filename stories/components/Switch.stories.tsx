@@ -12,14 +12,8 @@ const Template: ComponentStory<typeof SwitchComponent> = (props) => {
   return (
     <SwitchComponent
       checked={isChecked}
-      onCheck={_setChecked}
-      height={props.height}
-      width={props.width} />
+      onCheck={_setChecked} />
   )
 };
 
 export const Switch = Template.bind({});
-Switch.args = {
-  width: 40,
-  height: 24,
-};
