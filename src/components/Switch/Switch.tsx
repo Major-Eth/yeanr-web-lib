@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactElement } from "react";
 import { Switch as SwitchHeadlessUI } from "@headlessui/react";
 import styled, { css } from "styled-components";
 
@@ -43,7 +43,7 @@ const StyledSpan = styled.span`
   `}
 `;
 
-export const Switch = ({ checked, height, width, onCheck }: SwitchProps) => {
+export const Switch = ({ checked, height, width, onCheck }: SwitchProps): ReactElement => {
   return (
     <StyledSwitch
       checked={checked}
