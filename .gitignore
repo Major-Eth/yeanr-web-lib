@@ -3,6 +3,7 @@ node_modules
 
 # production
 dist
+lib
 
 # misc
 .DS_Store
@@ -16,3 +17,5 @@ yarn-error.log*
 
 .env
 env.list
+
+.vercel

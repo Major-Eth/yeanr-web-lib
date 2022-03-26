@@ -1,18 +1,9 @@
 import React, { ReactNode, ReactElement } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import RobotoWoff from "../fonts/roboto-v29-latin-regular.woff";
-import RobotoWoff2 from "../fonts/roboto-v29-latin-regular.woff2";
 import { defaultTheme, ThemeType } from "../themes";
 
 const GlobalStyles = createGlobalStyle`
-    @font-face {
-        font-family: 'Roboto';
-        src: local('Roboto'), local('Roboto'),
-        url(${RobotoWoff}) format('woff');
-        url(${RobotoWoff2}) format('woff2'),
-        font-weight: 700;
-        font-style: normal;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
     body {
       font-family: 'Roboto', ui-sans-serif, system-ui, -apple-system,
@@ -34,4 +25,5 @@ const Wrapper = ({ children, theme }: WrapperProps): ReactElement => (
   </ThemeProvider>
 );
 
+export { Wrapper as Providers };
 export default Wrapper;

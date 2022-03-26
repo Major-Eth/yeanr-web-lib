@@ -1,4 +1,4 @@
-import ThemeProvider from "../src/providers";
+import { Providers } from "../src/providers/Providers";
 import { light, dark, blue } from "../src/themes";
 
 export const parameters = {
@@ -38,9 +38,9 @@ const withThemeProvider = (Story, context) => {
   const theme = getThemeFromContext(context);
 
   return (
-    <ThemeProvider theme={theme}>
+    <Providers theme={theme}>
       <Story {...context} />
-    </ThemeProvider>
+    </Providers>
   );
 };
 

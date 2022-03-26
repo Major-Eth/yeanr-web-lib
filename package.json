@@ -1,16 +1,22 @@
 {
   "name": "@yearn/yearn-web-lib",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "author": "Yearn",
   "description": "Basic web library for Yearn's projects",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
-  "repository": "https://github.com/Major-Eth/yearn-web-lib.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yearn/yearn-web-lib.git"
+  },
   "scripts": {
-    "build": "rm -rf ./dist && tsc -d --emitDeclarationOnly --declarationDir dist",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "lint": "run-p -cln lint:typescript lint:eslint lint:other",
     "lint:typescript": "tsc -p tsconfig.json --noEmit",
     "lint:eslint": "eslint --ignore-path .gitignore --max-warnings 0 --ext .ts,.tsx src",
@@ -21,39 +27,50 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
-    "@babel/core": "^7.17.5",
+    "@babel/core": "^7.17.7",
+    "@babel/runtime-corejs3": "^7.17.7",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
-    "@types/styled-components": "^5.1.23",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
+    "@types/styled-components": "^5.1.24",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
     "babel-loader": "^8.2.3",
-    "eslint": "^8.9.0",
+    "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.7",
     "np": "^7.6.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "postcss": "^8.4.11",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "ts-loader": "^9.2.8",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "1.5.0",
+    "@yearn/yearn-web-assets": "^1.0.4",
+    "@yearn/yearn-web-themes": "^1.1.1",
     "styled-components": "^5.3.3",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.2"
   }
 }
