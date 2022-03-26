@@ -43,7 +43,12 @@ const StyledSpan = styled.span`
   `}
 `;
 
-export const Switch = ({ checked, height, width, onCheck }: SwitchProps): ReactElement => {
+export const Switch = ({
+  checked,
+  height,
+  width,
+  onCheck,
+}: SwitchProps): ReactElement => {
   return (
     <StyledSwitch
       checked={checked}
@@ -54,7 +59,7 @@ export const Switch = ({ checked, height, width, onCheck }: SwitchProps): ReactE
       <StyledSpan
         checked={checked}
         onCheck={onCheck}
-        aria-hidden="true"
+        aria-hidden={"true"}
         height={height - borderWidth * 2}
         width={height - borderWidth * 2}
       />
