@@ -1,22 +1,24 @@
-import React, { useState } from 'react'
-import { Switch as SwitchHeadlessUI } from '@headlessui/react'
-import styled, { css } from "styled-components"
+import React, { useState } from "react";
+import { Switch as SwitchHeadlessUI } from "@headlessui/react";
+import styled, { css } from "styled-components";
 
 export type SwitchProps = {
-    onCheck: (enabled: boolean) => void
-    checked: boolean
-    width: number
-    height: number
-    borderWidth?: number
-}
+  onCheck: (enabled: boolean) => void;
+  checked: boolean;
+  width: number;
+  height: number;
+  borderWidth?: number;
+};
 
-const borderRadius = 9999
+const borderRadius = 9999;
+const borderWidth = 4;
 
 const StyledSwitch = styled(SwitchHeadlessUI)<SwitchProps>`
     border-radius: ${borderRadius}px;
-    background-color: ${({ checked, theme }) => checked ? theme.colors.background : theme.colors.secondary };
+    background-color: ${({ checked, theme }) =>
+      checked ? theme.colors.background : theme.colors.secondary};
     border-color: transparent;
-    border-width: ${({ borderWidth }) => borderWidth +"px"};
+    border-width: ${borderWidth}"px"};
     width: ${({ width }) => width + "px"};
     height: ${({ height }) => height + "px"};
     outline: solid;
@@ -27,43 +29,36 @@ const StyledSwitch = styled(SwitchHeadlessUI)<SwitchProps>`
     flex-shrink: 0;
     padding: 0;
     cursor: pointer;
-`
+`;
 
 const StyledSpan = styled.span`
-    ${({ width, height, checked }: SwitchProps) => css`
-        background-color: ${({ theme }) => theme.colors.primary};
-        border-radius: ${borderRadius}px;
-        pointer-events: none;
-        display: inline-block;
-        height: ${height}px;
-        width: ${width}px;
-        transition-duration: 200ms;
-        transform: ${checked ? 'translateX(0px)' : 'translateX(1rem)'};
-    `}
-`
+  ${({ width, height, checked }: SwitchProps) => css`
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-radius: ${borderRadius}px;
+    pointer-events: none;
+    display: inline-block;
+    height: ${height}px;
+    width: ${width}px;
+    transition-duration: 200ms;
+    transform: ${checked ? "translateX(0px)" : "translateX(1rem)"};
+  `}
+`;
 
-export const Switch = ({
-    borderWidth = 4,
-    checked,
-    height,
-    width,
-    onCheck,
-}: SwitchProps) => {
-    return (
-        <StyledSwitch
-            checked={checked}
-            onChange={onCheck}
-            height={height}
-            borderWidth={borderWidth}
-            width={width}
-        >
-            <StyledSpan
-                checked={checked}
-                onCheck={onCheck}
-                aria-hidden="true"
-                height={height - (borderWidth*2)}
-                width={height - (borderWidth*2)}
-            />
-        </StyledSwitch>
-    )
-}
+export const Switch = ({ checked, height, width, onCheck }: SwitchProps) => {
+  return (
+    <StyledSwitch
+      checked={checked}
+      onChange={onCheck}
+      height={height}
+      width={width}
+    >
+      <StyledSpan
+        checked={checked}
+        onCheck={onCheck}
+        aria-hidden="true"
+        height={height - borderWidth * 2}
+        width={height - borderWidth * 2}
+      />
+    </StyledSwitch>
+  );
+};
